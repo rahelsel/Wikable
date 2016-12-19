@@ -12,7 +12,8 @@
 @interface ArticleBodyViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *scrollSubView;
-@property (weak, nonatomic) IBOutlet UILabel *bodyLabel;
+@property (weak, nonatomic) IBOutlet UITextView *bodyText;
+
 
 @end
 
@@ -27,10 +28,8 @@
                                                  name:UIContentSizeCategoryDidChangeNotification
                                                object:nil];
 
-    self.bodyLabel.text = kLoremIpsum;
-
-    UIFont *myFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-
+    self.bodyText.text = kLoremIpsum;
+    self.bodyText.editable = NO;
 
     
 
@@ -51,7 +50,9 @@
 - (void)configureView
 {
     NSLog(@"%@", [[UIApplication sharedApplication] preferredContentSizeCategory] );
-    self.bodyLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    UIFont *myFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+
+    self.bodyText.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 }
 
 -(void)dealloc

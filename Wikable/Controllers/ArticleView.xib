@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArticleBodyViewController">
             <connections>
-                <outlet property="bodyLabel" destination="EAQ-T8-VCP" id="wp1-Hk-iBn"/>
+                <outlet property="bodyText" destination="MDO-RE-u2c" id="WyL-Ld-VVz"/>
                 <outlet property="scrollSubView" destination="71o-h5-IKC" id="HN9-o6-sAp"/>
                 <outlet property="scrollView" destination="Zw4-2y-S83" id="VoX-Rj-X34"/>
                 <outlet property="view" destination="uB1-Yr-3FQ" id="QUa-eK-Odx"/>
@@ -28,20 +28,21 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71o-h5-IKC">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BodyLabel" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAQ-T8-VCP">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MDO-RE-u2c">
                                     <rect key="frame" x="16" y="16" width="343" height="968"/>
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="EAQ-T8-VCP" secondAttribute="bottom" constant="16" id="0rM-cU-CtQ"/>
-                                <constraint firstItem="EAQ-T8-VCP" firstAttribute="leading" secondItem="71o-h5-IKC" secondAttribute="leading" constant="16" id="AJd-ce-eUa"/>
-                                <constraint firstItem="EAQ-T8-VCP" firstAttribute="top" secondItem="71o-h5-IKC" secondAttribute="top" constant="16" id="PJj-qb-hKz"/>
+                                <constraint firstItem="MDO-RE-u2c" firstAttribute="top" secondItem="71o-h5-IKC" secondAttribute="top" constant="16" id="6BB-AR-i6u"/>
+                                <constraint firstAttribute="bottom" secondItem="MDO-RE-u2c" secondAttribute="bottom" constant="16" id="Ily-GK-jb3"/>
                                 <constraint firstAttribute="height" constant="1000" id="jaf-1k-prd"/>
-                                <constraint firstAttribute="trailing" secondItem="EAQ-T8-VCP" secondAttribute="trailing" constant="16" id="m1U-A5-RvY"/>
+                                <constraint firstItem="MDO-RE-u2c" firstAttribute="leading" secondItem="71o-h5-IKC" secondAttribute="leading" constant="16" id="qAn-0I-tQo"/>
+                                <constraint firstAttribute="trailing" secondItem="MDO-RE-u2c" secondAttribute="trailing" constant="16" id="yZR-3w-JZ4"/>
                             </constraints>
                         </view>
                     </subviews>
