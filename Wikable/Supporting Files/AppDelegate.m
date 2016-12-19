@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ArticleBodyViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    ArticleBodyViewController *articleVC = [[ArticleBodyViewController alloc] init];
+
+
+    self.window = [[UIWindow alloc] init];
+    self.window.rootViewController = articleVC;
+    [self.window makeKeyAndVisible];
+
+
     return YES;
 }
 
