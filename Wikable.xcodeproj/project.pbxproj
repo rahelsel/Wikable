@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F23BB5431E083D92008907C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB5421E083D92008907C1 /* main.m */; };
+		F23BB5461E083D92008907C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB5451E083D92008907C1 /* AppDelegate.m */; };
+		F23BB5491E083D92008907C1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB5481E083D92008907C1 /* ViewController.m */; };
+		F23BB54C1E083D92008907C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F23BB54A1E083D92008907C1 /* Main.storyboard */; };
+		F23BB54E1E083D92008907C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F23BB54D1E083D92008907C1 /* Assets.xcassets */; };
+		F23BB5511E083D92008907C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F23BB54F1E083D92008907C1 /* LaunchScreen.storyboard */; };
+		F23BB55C1E083D92008907C1 /* WikableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB55B1E083D92008907C1 /* WikableTests.m */; };
+		F23BB5671E083D92008907C1 /* WikableUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB5661E083D92008907C1 /* WikableUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F23BB5581E083D92008907C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F23BB5361E083D91008907C1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F23BB53D1E083D91008907C1;
+			remoteInfo = Wikable;
+		};
+		F23BB5631E083D92008907C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F23BB5361E083D91008907C1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F23BB53D1E083D91008907C1;
+			remoteInfo = Wikable;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F23BB53E1E083D92008907C1 /* Wikable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wikable.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F23BB5421E083D92008907C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F23BB5441E083D92008907C1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F23BB5451E083D92008907C1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F23BB5471E083D92008907C1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F23BB5481E083D92008907C1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F23BB54B1E083D92008907C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F23BB54D1E083D92008907C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F23BB5501E083D92008907C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F23BB5521E083D92008907C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F23BB5571E083D92008907C1 /* WikableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F23BB55B1E083D92008907C1 /* WikableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WikableTests.m; sourceTree = "<group>"; };
+		F23BB55D1E083D92008907C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F23BB5621E083D92008907C1 /* WikableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F23BB5661E083D92008907C1 /* WikableUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WikableUITests.m; sourceTree = "<group>"; };
+		F23BB5681E083D92008907C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F23BB53B1E083D91008907C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F23BB5541E083D92008907C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F23BB55F1E083D92008907C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F23BB5351E083D91008907C1 = {
+			isa = PBXGroup;
+			children = (
+				F23BB5401E083D92008907C1 /* Wikable */,
+				F23BB55A1E083D92008907C1 /* WikableTests */,
+				F23BB5651E083D92008907C1 /* WikableUITests */,
+				F23BB53F1E083D92008907C1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F23BB53F1E083D92008907C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F23BB53E1E083D92008907C1 /* Wikable.app */,
+				F23BB5571E083D92008907C1 /* WikableTests.xctest */,
+				F23BB5621E083D92008907C1 /* WikableUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F23BB5401E083D92008907C1 /* Wikable */ = {
+			isa = PBXGroup;
+			children = (
+				F23BB5441E083D92008907C1 /* AppDelegate.h */,
+				F23BB5451E083D92008907C1 /* AppDelegate.m */,
+				F23BB5471E083D92008907C1 /* ViewController.h */,
+				F23BB5481E083D92008907C1 /* ViewController.m */,
+				F23BB54A1E083D92008907C1 /* Main.storyboard */,
+				F23BB54D1E083D92008907C1 /* Assets.xcassets */,
+				F23BB54F1E083D92008907C1 /* LaunchScreen.storyboard */,
+				F23BB5521E083D92008907C1 /* Info.plist */,
+				F23BB5411E083D92008907C1 /* Supporting Files */,
+			);
+			path = Wikable;
+			sourceTree = "<group>";
+		};
+		F23BB5411E083D92008907C1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F23BB5421E083D92008907C1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F23BB55A1E083D92008907C1 /* WikableTests */ = {
+			isa = PBXGroup;
+			children = (
+				F23BB55B1E083D92008907C1 /* WikableTests.m */,
+				F23BB55D1E083D92008907C1 /* Info.plist */,
+			);
+			path = WikableTests;
+			sourceTree = "<group>";
+		};
+		F23BB5651E083D92008907C1 /* WikableUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F23BB5661E083D92008907C1 /* WikableUITests.m */,
+				F23BB5681E083D92008907C1 /* Info.plist */,
+			);
+			path = WikableUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F23BB53D1E083D91008907C1 /* Wikable */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F23BB56B1E083D92008907C1 /* Build configuration list for PBXNativeTarget "Wikable" */;
+			buildPhases = (
+				F23BB53A1E083D91008907C1 /* Sources */,
+				F23BB53B1E083D91008907C1 /* Frameworks */,
+				F23BB53C1E083D91008907C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Wikable;
+			productName = Wikable;
+			productReference = F23BB53E1E083D92008907C1 /* Wikable.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F23BB5561E083D92008907C1 /* WikableTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F23BB56E1E083D92008907C1 /* Build configuration list for PBXNativeTarget "WikableTests" */;
+			buildPhases = (
+				F23BB5531E083D92008907C1 /* Sources */,
+				F23BB5541E083D92008907C1 /* Frameworks */,
+				F23BB5551E083D92008907C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F23BB5591E083D92008907C1 /* PBXTargetDependency */,
+			);
+			name = WikableTests;
+			productName = WikableTests;
+			productReference = F23BB5571E083D92008907C1 /* WikableTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F23BB5611E083D92008907C1 /* WikableUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F23BB5711E083D92008907C1 /* Build configuration list for PBXNativeTarget "WikableUITests" */;
+			buildPhases = (
+				F23BB55E1E083D92008907C1 /* Sources */,
+				F23BB55F1E083D92008907C1 /* Frameworks */,
+				F23BB5601E083D92008907C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F23BB5641E083D92008907C1 /* PBXTargetDependency */,
+			);
+			name = WikableUITests;
+			productName = WikableUITests;
+			productReference = F23BB5621E083D92008907C1 /* WikableUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F23BB5361E083D91008907C1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Bastardized Productions";
+				TargetAttributes = {
+					F23BB53D1E083D91008907C1 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = KUNVAN4RR6;
+						ProvisioningStyle = Automatic;
+					};
+					F23BB5561E083D92008907C1 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = KUNVAN4RR6;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F23BB53D1E083D91008907C1;
+					};
+					F23BB5611E083D92008907C1 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = KUNVAN4RR6;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F23BB53D1E083D91008907C1;
+					};
+				};
+			};
+			buildConfigurationList = F23BB5391E083D91008907C1 /* Build configuration list for PBXProject "Wikable" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F23BB5351E083D91008907C1;
+			productRefGroup = F23BB53F1E083D92008907C1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F23BB53D1E083D91008907C1 /* Wikable */,
+				F23BB5561E083D92008907C1 /* WikableTests */,
+				F23BB5611E083D92008907C1 /* WikableUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F23BB53C1E083D91008907C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F23BB5511E083D92008907C1 /* LaunchScreen.storyboard in Resources */,
+				F23BB54E1E083D92008907C1 /* Assets.xcassets in Resources */,
+				F23BB54C1E083D92008907C1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F23BB5551E083D92008907C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F23BB5601E083D92008907C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F23BB53A1E083D91008907C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F23BB5491E083D92008907C1 /* ViewController.m in Sources */,
+				F23BB5461E083D92008907C1 /* AppDelegate.m in Sources */,
+				F23BB5431E083D92008907C1 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F23BB5531E083D92008907C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F23BB55C1E083D92008907C1 /* WikableTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F23BB55E1E083D92008907C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F23BB5671E083D92008907C1 /* WikableUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F23BB5591E083D92008907C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F23BB53D1E083D91008907C1 /* Wikable */;
+			targetProxy = F23BB5581E083D92008907C1 /* PBXContainerItemProxy */;
+		};
+		F23BB5641E083D92008907C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F23BB53D1E083D91008907C1 /* Wikable */;
+			targetProxy = F23BB5631E083D92008907C1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F23BB54A1E083D92008907C1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F23BB54B1E083D92008907C1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F23BB54F1E083D92008907C1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F23BB5501E083D92008907C1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F23BB5691E083D92008907C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F23BB56A1E083D92008907C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F23BB56C1E083D92008907C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KUNVAN4RR6;
+				INFOPLIST_FILE = Wikable/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BastardizedProductions.Wikable;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F23BB56D1E083D92008907C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KUNVAN4RR6;
+				INFOPLIST_FILE = Wikable/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BastardizedProductions.Wikable;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F23BB56F1E083D92008907C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = KUNVAN4RR6;
+				INFOPLIST_FILE = WikableTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BastardizedProductions.WikableTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wikable.app/Wikable";
+			};
+			name = Debug;
+		};
+		F23BB5701E083D92008907C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = KUNVAN4RR6;
+				INFOPLIST_FILE = WikableTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BastardizedProductions.WikableTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wikable.app/Wikable";
+			};
+			name = Release;
+		};
+		F23BB5721E083D92008907C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = KUNVAN4RR6;
+				INFOPLIST_FILE = WikableUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BastardizedProductions.WikableUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Wikable;
+			};
+			name = Debug;
+		};
+		F23BB5731E083D92008907C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = KUNVAN4RR6;
+				INFOPLIST_FILE = WikableUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BastardizedProductions.WikableUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Wikable;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F23BB5391E083D91008907C1 /* Build configuration list for PBXProject "Wikable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F23BB5691E083D92008907C1 /* Debug */,
+				F23BB56A1E083D92008907C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F23BB56B1E083D92008907C1 /* Build configuration list for PBXNativeTarget "Wikable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F23BB56C1E083D92008907C1 /* Debug */,
+				F23BB56D1E083D92008907C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F23BB56E1E083D92008907C1 /* Build configuration list for PBXNativeTarget "WikableTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F23BB56F1E083D92008907C1 /* Debug */,
+				F23BB5701E083D92008907C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F23BB5711E083D92008907C1 /* Build configuration list for PBXNativeTarget "WikableUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F23BB5721E083D92008907C1 /* Debug */,
+				F23BB5731E083D92008907C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F23BB5361E083D91008907C1 /* Project object */;
+}
