@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F23BB5431E083D92008907C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB5421E083D92008907C1 /* main.m */; };
-		F23BB5461E083D92008907C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB5451E083D92008907C1 /* AppDelegate.m */; };
-		F23BB5491E083D92008907C1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB5481E083D92008907C1 /* ViewController.m */; };
-		F23BB54C1E083D92008907C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F23BB54A1E083D92008907C1 /* Main.storyboard */; };
-		F23BB54E1E083D92008907C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F23BB54D1E083D92008907C1 /* Assets.xcassets */; };
-		F23BB5511E083D92008907C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F23BB54F1E083D92008907C1 /* LaunchScreen.storyboard */; };
 		F23BB55C1E083D92008907C1 /* WikableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB55B1E083D92008907C1 /* WikableTests.m */; };
 		F23BB5671E083D92008907C1 /* WikableUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB5661E083D92008907C1 /* WikableUITests.m */; };
+		F23BB5791E083F80008907C1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB5781E083F80008907C1 /* ViewController.m */; };
+		F23BB57D1E083F8E008907C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB57B1E083F8E008907C1 /* AppDelegate.m */; };
+		F23BB57E1E083F8E008907C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB57C1E083F8E008907C1 /* main.m */; };
+		F23BB5801E083FAA008907C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F23BB57F1E083FAA008907C1 /* Assets.xcassets */; };
+		F23BB5831E083FB6008907C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F23BB5811E083FB6008907C1 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,14 +35,6 @@
 
 /* Begin PBXFileReference section */
 		F23BB53E1E083D92008907C1 /* Wikable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wikable.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F23BB5421E083D92008907C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F23BB5441E083D92008907C1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		F23BB5451E083D92008907C1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F23BB5471E083D92008907C1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F23BB5481E083D92008907C1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		F23BB54B1E083D92008907C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F23BB54D1E083D92008907C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F23BB5501E083D92008907C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F23BB5521E083D92008907C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23BB5571E083D92008907C1 /* WikableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23BB55B1E083D92008907C1 /* WikableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WikableTests.m; sourceTree = "<group>"; };
@@ -51,6 +42,13 @@
 		F23BB5621E083D92008907C1 /* WikableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23BB5661E083D92008907C1 /* WikableUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WikableUITests.m; sourceTree = "<group>"; };
 		F23BB5681E083D92008907C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F23BB5771E083F80008907C1 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Controllers/ViewController.h; sourceTree = "<group>"; };
+		F23BB5781E083F80008907C1 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Controllers/ViewController.m; sourceTree = "<group>"; };
+		F23BB57A1E083F8E008907C1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Supporting Files/AppDelegate.h"; sourceTree = "<group>"; };
+		F23BB57B1E083F8E008907C1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "Supporting Files/AppDelegate.m"; sourceTree = "<group>"; };
+		F23BB57C1E083F8E008907C1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
+		F23BB57F1E083FAA008907C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Views/Assets.xcassets; sourceTree = "<group>"; };
+		F23BB5821E083FB6008907C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Views/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +99,9 @@
 		F23BB5401E083D92008907C1 /* Wikable */ = {
 			isa = PBXGroup;
 			children = (
-				F23BB5441E083D92008907C1 /* AppDelegate.h */,
-				F23BB5451E083D92008907C1 /* AppDelegate.m */,
-				F23BB5471E083D92008907C1 /* ViewController.h */,
-				F23BB5481E083D92008907C1 /* ViewController.m */,
-				F23BB54A1E083D92008907C1 /* Main.storyboard */,
-				F23BB54D1E083D92008907C1 /* Assets.xcassets */,
-				F23BB54F1E083D92008907C1 /* LaunchScreen.storyboard */,
-				F23BB5521E083D92008907C1 /* Info.plist */,
+				F23BB5761E083F6E008907C1 /* Controllers */,
+				F23BB5751E083F65008907C1 /* Models */,
+				F23BB5741E083F5A008907C1 /* Views */,
 				F23BB5411E083D92008907C1 /* Supporting Files */,
 			);
 			path = Wikable;
@@ -117,7 +110,10 @@
 		F23BB5411E083D92008907C1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F23BB5421E083D92008907C1 /* main.m */,
+				F23BB57A1E083F8E008907C1 /* AppDelegate.h */,
+				F23BB57B1E083F8E008907C1 /* AppDelegate.m */,
+				F23BB57C1E083F8E008907C1 /* main.m */,
+				F23BB5521E083D92008907C1 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -138,6 +134,31 @@
 				F23BB5681E083D92008907C1 /* Info.plist */,
 			);
 			path = WikableUITests;
+			sourceTree = "<group>";
+		};
+		F23BB5741E083F5A008907C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F23BB57F1E083FAA008907C1 /* Assets.xcassets */,
+				F23BB5811E083FB6008907C1 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F23BB5751E083F65008907C1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		F23BB5761E083F6E008907C1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F23BB5771E083F80008907C1 /* ViewController.h */,
+				F23BB5781E083F80008907C1 /* ViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,9 +270,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F23BB5511E083D92008907C1 /* LaunchScreen.storyboard in Resources */,
-				F23BB54E1E083D92008907C1 /* Assets.xcassets in Resources */,
-				F23BB54C1E083D92008907C1 /* Main.storyboard in Resources */,
+				F23BB5831E083FB6008907C1 /* LaunchScreen.storyboard in Resources */,
+				F23BB5801E083FAA008907C1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,9 +296,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F23BB5491E083D92008907C1 /* ViewController.m in Sources */,
-				F23BB5461E083D92008907C1 /* AppDelegate.m in Sources */,
-				F23BB5431E083D92008907C1 /* main.m in Sources */,
+				F23BB57E1E083F8E008907C1 /* main.m in Sources */,
+				F23BB57D1E083F8E008907C1 /* AppDelegate.m in Sources */,
+				F23BB5791E083F80008907C1 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,18 +334,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F23BB54A1E083D92008907C1 /* Main.storyboard */ = {
+		F23BB5811E083FB6008907C1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F23BB54B1E083D92008907C1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F23BB54F1E083D92008907C1 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F23BB5501E083D92008907C1 /* Base */,
+				F23BB5821E083FB6008907C1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -514,6 +526,7 @@
 				F23BB56D1E083D92008907C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F23BB56E1E083D92008907C1 /* Build configuration list for PBXNativeTarget "WikableTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +535,7 @@
 				F23BB5701E083D92008907C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F23BB5711E083D92008907C1 /* Build configuration list for PBXNativeTarget "WikableUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +544,7 @@
 				F23BB5731E083D92008907C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
