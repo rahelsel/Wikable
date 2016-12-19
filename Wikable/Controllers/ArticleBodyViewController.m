@@ -10,8 +10,6 @@
 #import "LoremIpsum.h"
 
 @interface ArticleBodyViewController ()
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIView *scrollSubView;
 @property (weak, nonatomic) IBOutlet UITextView *bodyText;
 
 
