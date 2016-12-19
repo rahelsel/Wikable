@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArticleBodyViewController">
             <connections>
                 <outlet property="bodyLabel" destination="EAQ-T8-VCP" id="wp1-Hk-iBn"/>
+                <outlet property="scrollSubView" destination="71o-h5-IKC" id="HN9-o6-sAp"/>
+                <outlet property="scrollView" destination="Zw4-2y-S83" id="VoX-Rj-X34"/>
                 <outlet property="view" destination="uB1-Yr-3FQ" id="QUa-eK-Odx"/>
             </connections>
         </placeholder>
@@ -21,14 +23,14 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zw4-2y-S83">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71o-h5-IKC">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BodyLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAQ-T8-VCP">
-                                    <rect key="frame" x="16" y="36" width="343" height="948"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BodyLabel" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAQ-T8-VCP">
+                                    <rect key="frame" x="16" y="16" width="343" height="968"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -37,7 +39,7 @@
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="EAQ-T8-VCP" secondAttribute="bottom" constant="16" id="0rM-cU-CtQ"/>
                                 <constraint firstItem="EAQ-T8-VCP" firstAttribute="leading" secondItem="71o-h5-IKC" secondAttribute="leading" constant="16" id="AJd-ce-eUa"/>
-                                <constraint firstItem="EAQ-T8-VCP" firstAttribute="top" secondItem="71o-h5-IKC" secondAttribute="top" constant="36" id="PJj-qb-hKz"/>
+                                <constraint firstItem="EAQ-T8-VCP" firstAttribute="top" secondItem="71o-h5-IKC" secondAttribute="top" constant="16" id="PJj-qb-hKz"/>
                                 <constraint firstAttribute="height" constant="1000" id="jaf-1k-prd"/>
                                 <constraint firstAttribute="trailing" secondItem="EAQ-T8-VCP" secondAttribute="trailing" constant="16" id="m1U-A5-RvY"/>
                             </constraints>
@@ -56,7 +58,7 @@
                 <constraint firstItem="Zw4-2y-S83" firstAttribute="leading" secondItem="uB1-Yr-3FQ" secondAttribute="leading" id="8ZX-eo-Rm1"/>
                 <constraint firstItem="71o-h5-IKC" firstAttribute="width" secondItem="uB1-Yr-3FQ" secondAttribute="width" id="URC-od-IuC"/>
                 <constraint firstAttribute="trailing" secondItem="Zw4-2y-S83" secondAttribute="trailing" id="m6X-Iy-0B0"/>
-                <constraint firstItem="Zw4-2y-S83" firstAttribute="top" secondItem="uB1-Yr-3FQ" secondAttribute="top" id="sDM-fr-XSA"/>
+                <constraint firstItem="Zw4-2y-S83" firstAttribute="top" secondItem="uB1-Yr-3FQ" secondAttribute="top" constant="20" id="sDM-fr-XSA"/>
                 <constraint firstAttribute="bottom" secondItem="Zw4-2y-S83" secondAttribute="bottom" id="zxw-i3-5ya"/>
             </constraints>
             <point key="canvasLocation" x="-300.5" y="24.5"/>
