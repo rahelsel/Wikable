@@ -33,7 +33,7 @@
 
     [WikipediaAPI getArticleFor:@"iPhone"
                      completion:^(NSString *article) {
-                         NSLog(@"%@", article);
+                         //NSLog(@"%@", article);
                          __strong typeof(bruceBanner) hulk = bruceBanner;
                          hulk.bodyText.text = article;
                      }];
