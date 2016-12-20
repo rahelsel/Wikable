@@ -30,13 +30,16 @@ static NSString *kBaseURLforTitleSearch = @"https://en.wikipedia.org/w/api.php?a
                                 completionHandler:^(NSData *data,
                                                     NSURLResponse *response,
                                                     NSError *error) {
-        if(error) {
-            failure(error);
-        } else {
-            if(data) {
-                success(data);
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            if(error) {
+                failure(error);
+            } else {
+                if(data) {
+                    success(data);
+                }
             }
-        }
+        }];
+
     }];
     [dataTask resume];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
