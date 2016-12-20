@@ -11,10 +11,13 @@
 @interface WikipediaAPI : NSObject
 
 
-+(void)getArticleFrom:(NSString *)title
-           completion:(void (^)(NSString *article))completion;
++(void)getArticleFor:(NSString *)title
+          completion:(void (^)(NSString *article))completion;
 
-+(NSURL *)urlFrom:(NSString *)baseURL
-              and:(NSString *)searchTerm;
++(void)getRawMarkupFor:(NSString *)title
+            completion:(void (^)(NSString *markup))completion;
+
++(void)getTitlesFor:(NSString *)searchTerm
+         completion:(void (^)(NSArray *results))completion;
 
 @end

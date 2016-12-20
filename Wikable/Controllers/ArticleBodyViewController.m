@@ -10,6 +10,7 @@
 #import "WikipediaAPI.h"
 #import "LoremIpsum.h"
 
+
 @interface ArticleBodyViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *bodyText;
 
@@ -30,8 +31,19 @@
     self.bodyText.text = kLoremIpsum;
     self.bodyText.editable = NO;
 
-    [WikipediaAPI searchWikipedia];
+    [WikipediaAPI getArticleFor:@"iPhone"
+                     completion:^(NSString *article) {
+                         NSLog(@"%@", article);
+                     }];
 
+//    [WikipediaAPI getRawMarkupFor:@"iPhone"
+//                       completion:^(NSString *markup) {
+//                           NSLog(@"%@", markup);
+//                       }];
+//    [WikipediaAPI getTitlesFor:@"iPhone"
+//                    completion:^(NSArray *titles) {
+//                        NSLog(@"%@", titles);
+//                    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -49,7 +61,7 @@
 - (void)configureView
 {
     NSLog(@"%@", [[UIApplication sharedApplication] preferredContentSizeCategory] );
-    UIFont *myFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    //UIFont *myFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 
     self.bodyText.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 }

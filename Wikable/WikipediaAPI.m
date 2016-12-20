@@ -9,10 +9,9 @@
 @import UIKit;
 #import "WikipediaAPI.h"
 
-NSString *kBaseURLforArticleFromAPI = @"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exlimit=max&explaintext&titles=";
-NSString *kBaseURLforRawMarkup = @"http://en.wikipedia.org/w/index.php?action=raw&title=";
-NSString *kBaseURLforTitleSearch = @"https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&utf8=&srsearch=";
-
+static NSString *kBaseURLforArticleFromAPI = @"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exlimit=max&explaintext&titles=";
+static NSString *kBaseURLforRawMarkup = @"http://en.wikipedia.org/w/index.php?action=raw&title=";
+static NSString *kBaseURLforTitleSearch = @"https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&utf8=&srsearch=";
 
 @interface WikipediaAPI ()
 
@@ -21,40 +20,9 @@ NSString *kBaseURLforTitleSearch = @"https://en.wikipedia.org/w/api.php?action=q
 
 @implementation WikipediaAPI
 
-// GRAB THE SEARCH BAR TEXT!!!
-NSString *searchTerm = @"iphone 7";
-
-
-+(void)getJSONfrom:(NSURL *)url
-           success:(void (^)(NSDictionary *responseDict))success
-           failure:(void(^)(NSError* error))failure {
-
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    NSURLSessionDataTask *dataTask =
-        [[NSURLSession sharedSession] dataTaskWithURL:url
-                                    completionHandler:^(NSData *data,
-                                                        NSURLResponse *response,
-                                                        NSError *error) {
-        if(error) {
-            failure(error);
-        } else {
-            if(data) {
-                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
-                                                       options:NSJSONReadingMutableContainers
-                                                         error:nil];
-                success(json);
-            }
-        }
-    }];
-
-    [dataTask resume];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-
-}
-
-+(void)getRawMarkupfrom:(NSURL *)url
-           success:(void (^)(NSData *data))success
-           failure:(void(^)(NSError* error))failure {
++(void)getContentsOf:(NSURL *)url
+             success:(void (^)(NSData *data))success
+             failure:(void(^)(NSError* error))failure {
 
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSURLSessionDataTask *dataTask =
@@ -81,36 +49,60 @@ NSString *searchTerm = @"iphone 7";
     return [NSURL URLWithString:fixedTermWithBaseURL];
 }
 
-+(void)getArticleFrom:(NSString *)title
-           completion:(void (^)(NSString *article))completion{
++(void)getArticleFor:(NSString *)title
+          completion:(void (^)(NSString *article))completion{
 
     NSURL *fullURL = [self urlFrom:kBaseURLforArticleFromAPI and:title];
 
-    [self getJSONfrom:fullURL
-              success:^(NSDictionary *responseDict) {
-                  completion( responseDict[@"pages"]);
-              }
-              failure:^(NSError *error) {
-                  NSLog(@"Failed to get Article: %@ \nError: %@", title, error);
-              }];
+    [self getContentsOf:fullURL
+                success:^(NSData *data) {
+                    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                                         options:NSJSONReadingMutableContainers
+                                                                           error:nil];
+
+                    NSString *articleID = [[json[@"query"][@"pages"] allKeys] firstObject];
+                    completion( json[@"query"][@"pages"][articleID][@"extract"]);
+                }
+                failure:^(NSError *error) {
+                    NSLog(@"Failed to get Article: %@ \nError: %@", title, error);
+                }];
 
 }
 
-+(void)getRawMarkupFrom:(NSString *)title
-             completion:(void (^)(NSString *markup))completion {
++(void)getRawMarkupFor:(NSString *)title
+            completion:(void (^)(NSString *markup))completion {
 
     NSURL *fullURL = [self urlFrom:kBaseURLforRawMarkup and:title];
 
-    [self getRawMarkupfrom:fullURL
-                   success:^(NSData *data) {
-                       completion((NSString *)data);
-                   }
-                   failure:^(NSError *error) {
-                       NSLog(@"Failed to get Raw Markup: %@ \nError: %@", title, error);
-                   }];
+    [self getContentsOf:fullURL
+               success:^(NSData *data) {
+                        NSString *stringified = [[NSString alloc] initWithData:data
+                                                                      encoding:NSUTF8StringEncoding];
+                        completion(stringified);
+               }
+               failure:^(NSError *error) {
+                   NSLog(@"Failed to get Raw Markup: %@ \nError: %@", title, error);
+               }];
+}
+
++(void)getTitlesFor:(NSString *)searchTerm
+         completion:(void (^)(NSArray *titles))completion {
+
+    NSURL *fullURL = [self urlFrom:kBaseURLforTitleSearch and:searchTerm];
+
+    [self getContentsOf:fullURL
+                success:^(NSData *data) {
+                    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                                         options:NSJSONReadingMutableContainers
+                                                                           error:nil];
+                    NSArray *arr = json[@"query"][@"search"];
+                    completion( [arr valueForKey: @"title"] );
+                }
+                failure:^(NSError *error) {
+                    NSLog(@"Failed to get results for searth term: %@ \nError: %@", searchTerm, error);
+                }];
 
 
 }
-
 
 @end
