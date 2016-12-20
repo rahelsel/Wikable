@@ -156,8 +156,8 @@
 		F23BB5751E083F65008907C1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F23BB58D1E09A71B008907C1 /* WikipediaAPI.m */,
 				F23BB58E1E09A71B008907C1 /* WikipediaAPI.h */,
+				F23BB58D1E09A71B008907C1 /* WikipediaAPI.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";

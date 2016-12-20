@@ -11,6 +11,10 @@
 @interface WikipediaAPI : NSObject
 
 
-+(void) searchWikipedia;
++(void)getArticleFrom:(NSString *)title
+           completion:(void (^)(NSString *article))completion;
+
++(NSURL *)urlFrom:(NSString *)baseURL
+              and:(NSString *)searchTerm;
 
 @end
