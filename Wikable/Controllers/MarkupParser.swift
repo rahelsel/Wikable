@@ -8,16 +8,65 @@
 
 import Foundation
 
-class MarkupParser: NSObject {
-    let shared = MarkupParser()
+// This has to live outside the class for it to be available to a computed property,
+// which we need for use of our singleton with bridging headers
+// TODO: check to see if the normal singleton pattern works in the future.
+private let sharedMarkupParser = MarkupParser()
 
-    private override init(){
+class MarkupParser: NSObject {
+    class var shared: MarkupParser{
+        return sharedMarkupParser
+    }
+
+    override init(){
 
     }
 
-    func linkifyArticle(_ title: String) -> String {
+//    class func shared() -> MarkupParser {
+//        if(_shared == nil) {
+//            let fakeDispatchOnce: () = {
+//                _shared = MarkupParser()
+//            }()
+//        }
+//        return MarkupParser._shared
+//    }
 
+    func linkifyArticle(_ title: String="iPhone") -> String {
+
+//        var plaintext = String()
+//        var markup = String()
+//
+//
+//
+//
+//        WikipediaAPI.getArticleFor( title) { (article) in
+//            plaintext = article
+//            print(plaintext)
+//        }
+//
+//        WikipediaAPI.getRawMarkup(for: title) { (article) in
+//            markup = article
+//            print(markup)
+//        }
+
+        getStuff("iPhone")
 
         return ""
+    }
+
+
+    func getStuff(_ title: String) {
+        WikipediaAPI.getArticleFor( title) { (plaintext) in
+            WikipediaAPI.getRawMarkup(for: title) { (markup) in
+                self.doStuff(plaintext, markup)
+            }
+        }
+    }
+
+    func doStuff(_ plaintext: String, _ markup: String) {
+        print(plaintext)
+        print("===========================================")
+        print(markup)
+
     }
 }

@@ -7,6 +7,7 @@
 //
 
 #import "ArticleBodyViewController.h"
+#import "Wikable-Swift.h"
 #import "WikipediaAPI.h"
 
 
@@ -15,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *bodyText;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
-
+@property (strong, nonatomic) MarkupParser *markupParser;
 @end
 
 @implementation ArticleBodyViewController
@@ -35,6 +36,8 @@
     self.bodyText.editable = NO;
     self.bodyText.text = @"";
 
+    self.markupParser = [MarkupParser shared];
+    [self.markupParser linkifyArticle:@"iPhone"];
 
 //    [WikipediaAPI getRawMarkupFor:@"iPhone"
 //                       completion:^(NSString *markup) {

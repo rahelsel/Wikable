@@ -52,8 +52,8 @@ static NSString *kBaseURLforTitleSearch = @"https://en.wikipedia.org/w/api.php?a
     return [NSURL URLWithString:fixedTermWithBaseURL];
 }
 
-+(void)getArticleFor:(NSString *)title
-          completion:(void (^)(NSString *article))completion{
++(void)getArticleFor:(NSString * _Nonnull)title
+          completion:(nullable void (^)(NSString * _Nonnull article))completion{
 
     NSURL *fullURL = [self urlFrom:kBaseURLforArticleFromAPI and:title];
 
@@ -72,8 +72,8 @@ static NSString *kBaseURLforTitleSearch = @"https://en.wikipedia.org/w/api.php?a
 
 }
 
-+(void)getRawMarkupFor:(NSString *)title
-            completion:(void (^)(NSString *markup))completion {
++(void)getRawMarkupFor:(NSString * _Nonnull)title
+            completion:(nullable void (^)(NSString * _Nonnull markup))completion {
 
     NSURL *fullURL = [self urlFrom:kBaseURLforRawMarkup and:title];
 
@@ -88,8 +88,8 @@ static NSString *kBaseURLforTitleSearch = @"https://en.wikipedia.org/w/api.php?a
                }];
 }
 
-+(void)getTitlesFor:(NSString *)searchTerm
-         completion:(void (^)(NSArray *titles))completion {
++(void)getTitlesFor:(NSString * _Nonnull)searchTerm
+         completion:(nullable void (^)(NSArray * _Nonnull titles))completion {
 
     NSURL *fullURL = [self urlFrom:kBaseURLforTitleSearch and:searchTerm];
 
