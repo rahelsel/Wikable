@@ -7,6 +7,7 @@
 //
 
 #import "ArticleBodyViewController.h"
+#import "WikipediaAPI.h"
 #import "LoremIpsum.h"
 
 @interface ArticleBodyViewController ()
@@ -29,7 +30,7 @@
     self.bodyText.text = kLoremIpsum;
     self.bodyText.editable = NO;
 
-    
+    [WikipediaAPI searchWikipedia];
 
 }
 
