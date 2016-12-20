@@ -8,7 +8,7 @@
 
 #import "ArticleBodyViewController.h"
 #import "WikipediaAPI.h"
-#import "LoremIpsum.h"
+
 
 
 @interface ArticleBodyViewController () <UISearchBarDelegate>
@@ -32,13 +32,8 @@
                                                  name:UIContentSizeCategoryDidChangeNotification
                                                object:nil];
 
-    self.bodyText.text = @"";
-    
-
-
-
-//    self.bodyText.text = kLoremIpsum;
     self.bodyText.editable = NO;
+    self.bodyText.text = @"";
 
 
 //    [WikipediaAPI getRawMarkupFor:@"iPhone"
