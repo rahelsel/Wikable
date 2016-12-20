@@ -8,7 +8,7 @@
 
 #import "ArticleBodyViewController.h"
 #import "WikipediaAPI.h"
-#import "LoremIpsum.h"
+
 
 
 @interface ArticleBodyViewController ()
@@ -28,19 +28,15 @@
                                                  name:UIContentSizeCategoryDidChangeNotification
                                                object:nil];
 
+    self.bodyText.editable = NO;
     self.bodyText.text = @"";
-    __weak typeof(self) bruceBanner = self;
 
+    __weak typeof(self) bruceBanner = self;
     [WikipediaAPI getArticleFor:@"iPhone"
                      completion:^(NSString *article) {
-                         //NSLog(@"%@", article);
                          __strong typeof(bruceBanner) hulk = bruceBanner;
                          hulk.bodyText.text = article;
                      }];
-
-
-//    self.bodyText.text = kLoremIpsum;
-    self.bodyText.editable = NO;
 
 
 //    [WikipediaAPI getRawMarkupFor:@"iPhone"
