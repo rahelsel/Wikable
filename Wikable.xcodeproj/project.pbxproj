@@ -16,6 +16,7 @@
 		F23BB5871E0840F1008907C1 /* ArticleBodyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB5851E0840F1008907C1 /* ArticleBodyViewController.m */; };
 		F23BB5881E0840F1008907C1 /* ArticleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23BB5861E0840F1008907C1 /* ArticleView.xib */; };
 		F23BB58C1E086A5D008907C1 /* LoremIpsum.h in Sources */ = {isa = PBXBuildFile; fileRef = F23BB58B1E086A5D008907C1 /* LoremIpsum.h */; };
+		F23BB58F1E09A71B008907C1 /* WikipediaAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB58D1E09A71B008907C1 /* WikipediaAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		F23BB5851E0840F1008907C1 /* ArticleBodyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleBodyViewController.m; path = Controllers/ArticleBodyViewController.m; sourceTree = "<group>"; };
 		F23BB5861E0840F1008907C1 /* ArticleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleView.xib; path = Controllers/ArticleView.xib; sourceTree = "<group>"; };
 		F23BB58B1E086A5D008907C1 /* LoremIpsum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoremIpsum.h; path = "Supporting Files/LoremIpsum.h"; sourceTree = "<group>"; };
+		F23BB58D1E09A71B008907C1 /* WikipediaAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikipediaAPI.m; sourceTree = "<group>"; };
+		F23BB58E1E09A71B008907C1 /* WikipediaAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikipediaAPI.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 		F23BB5751E083F65008907C1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F23BB58D1E09A71B008907C1 /* WikipediaAPI.m */,
+				F23BB58E1E09A71B008907C1 /* WikipediaAPI.h */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				F23BB58C1E086A5D008907C1 /* LoremIpsum.h in Sources */,
 				F23BB57E1E083F8E008907C1 /* main.m in Sources */,
 				F23BB57D1E083F8E008907C1 /* AppDelegate.m in Sources */,
+				F23BB58F1E09A71B008907C1 /* WikipediaAPI.m in Sources */,
 				F23BB5871E0840F1008907C1 /* ArticleBodyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
