@@ -11,8 +11,9 @@
 #import "LoremIpsum.h"
 
 
-@interface ArticleBodyViewController ()
+@interface ArticleBodyViewController () <UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *bodyText;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 
 @end
@@ -23,20 +24,17 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.searchBar.delegate = self;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didChangePreferredContentSize:)
                                                  name:UIContentSizeCategoryDidChangeNotification
                                                object:nil];
 
     self.bodyText.text = @"";
-    __weak typeof(self) bruceBanner = self;
+    
 
-    [WikipediaAPI getArticleFor:@"iPhone"
-                     completion:^(NSString *article) {
-                         //NSLog(@"%@", article);
-                         __strong typeof(bruceBanner) hulk = bruceBanner;
-                         hulk.bodyText.text = article;
-                     }];
 
 
 //    self.bodyText.text = kLoremIpsum;
@@ -71,6 +69,19 @@
     //UIFont *myFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 
     self.bodyText.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+}
+
+
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    __weak typeof(self) bruceBanner = self;
+    [WikipediaAPI getArticleFor:searchBar.text
+                     completion:^(NSString *article) {
+                         
+                         __strong typeof(bruceBanner) hulk = bruceBanner;
+                         hulk.bodyText.text = article;
+                     }];
+    
 }
 
 -(void)dealloc

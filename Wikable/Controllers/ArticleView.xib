@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArticleBodyViewController">
             <connections>
                 <outlet property="bodyText" destination="MDO-RE-u2c" id="WyL-Ld-VVz"/>
+                <outlet property="searchBar" destination="BOa-Ou-ffP" id="oyA-Mb-l2I"/>
                 <outlet property="view" destination="uB1-Yr-3FQ" id="QUa-eK-Odx"/>
             </connections>
         </placeholder>
@@ -21,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MDO-RE-u2c">
-                    <rect key="frame" x="16" y="36" width="343" height="631"/>
+                    <rect key="frame" x="16" y="72" width="343" height="595"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <attributedString key="attributedText">
                         <fragment>
@@ -33,12 +34,19 @@
                     </attributedString>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <searchBar contentMode="redraw" placeholder="Search Wikipedia" translatesAutoresizingMaskIntoConstraints="NO" id="BOa-Ou-ffP">
+                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="BOa-Ou-ffP" firstAttribute="top" secondItem="uB1-Yr-3FQ" secondAttribute="top" constant="20" id="8Nq-y0-V8V"/>
                 <constraint firstAttribute="bottom" secondItem="MDO-RE-u2c" secondAttribute="bottom" id="B2z-Rc-LnW"/>
-                <constraint firstItem="MDO-RE-u2c" firstAttribute="top" secondItem="uB1-Yr-3FQ" secondAttribute="top" constant="36" id="TI9-h8-wr4"/>
+                <constraint firstAttribute="trailing" secondItem="BOa-Ou-ffP" secondAttribute="trailing" id="E7H-eN-D4p"/>
+                <constraint firstItem="BOa-Ou-ffP" firstAttribute="leading" secondItem="uB1-Yr-3FQ" secondAttribute="leading" id="dM9-wv-XYr"/>
                 <constraint firstAttribute="trailing" secondItem="MDO-RE-u2c" secondAttribute="trailing" constant="16" id="g2q-Eb-hhO"/>
+                <constraint firstItem="MDO-RE-u2c" firstAttribute="top" secondItem="BOa-Ou-ffP" secondAttribute="bottom" constant="8" id="iq3-zU-eDT"/>
                 <constraint firstItem="MDO-RE-u2c" firstAttribute="leading" secondItem="uB1-Yr-3FQ" secondAttribute="leading" constant="16" id="t6e-Cc-keX"/>
             </constraints>
             <point key="canvasLocation" x="-300.5" y="24.5"/>
