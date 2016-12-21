@@ -72,8 +72,7 @@ static NSString *kBaseURLforTitleSearch = @"https://en.wikipedia.org/w/api.php?a
 
 }
 
-+(void)getRawMarkupFor:(NSString * _Nonnull)title
-            completion:(nullable void (^)(NSString * _Nonnull markup))completion {
++(void)getRawMarkupFor:(NSString * _Nonnull)title completion:(nullable void (^)(NSString * _Nonnull markup))completion {
 
     NSURL *fullURL = [self urlFrom:kBaseURLforRawMarkup and:title];
 
@@ -88,8 +87,7 @@ static NSString *kBaseURLforTitleSearch = @"https://en.wikipedia.org/w/api.php?a
                }];
 }
 
-+(void)getTitlesFor:(NSString * _Nonnull)searchTerm
-         completion:(nullable void (^)(NSArray * _Nonnull titles))completion {
++(void)getTitlesFor:(NSString * _Nonnull)searchTerm completion:(nullable void (^)(NSArray * _Nonnull titles))completion {
 
     NSURL *fullURL = [self urlFrom:kBaseURLforTitleSearch and:searchTerm];
 
@@ -100,6 +98,7 @@ static NSString *kBaseURLforTitleSearch = @"https://en.wikipedia.org/w/api.php?a
                                                                            error:nil];
                     NSArray *arr = json[@"query"][@"search"];
                     completion( [arr valueForKey: @"title"] );
+                    
                 }
                 failure:^(NSError *error) {
                     NSLog(@"Failed to get results for searth term: %@ \nError: %@", searchTerm, error);
