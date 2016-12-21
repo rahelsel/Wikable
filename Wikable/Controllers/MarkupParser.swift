@@ -36,7 +36,24 @@ class MarkupParser: NSObject {
     }
 
     private class func linkify(_ plaintext: String, _ markup: String) {
-        print(markup)
+        // We're going to ignore lines that begin with:
+        //   {, }, <, >, |, *, or whitespace
+        let pattern = "^[\\{\\}\\<\\>\\|\\*\\s]"
+        let regex = try! NSRegularExpression(pattern: pattern, options: [])
+        var wasFound = false
+
+        var markupLines = markup.components(separatedBy: .newlines)
+
+//        for line in markupLines {
+//            regex.enumerateMatches(in: line,
+//                                   options: [],
+//                                   range: NSRange(location: 0,
+//                                   length: line.characters.count)) {
+//                (match, _, stop) in
+//            }
+//        }
+
+        var plaintextLines: [String] = plaintext.components(separatedBy: .newlines)
 
     }
 }
