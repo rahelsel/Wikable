@@ -17,55 +17,25 @@ class MarkupParser: NSObject {
     class var shared: MarkupParser{
         return sharedMarkupParser
     }
+    override init(){}
 
-    override init(){
+    func linkifyArticle(_ title: String) -> String {
 
-    }
-
-//    class func shared() -> MarkupParser {
-//        if(_shared == nil) {
-//            let fakeDispatchOnce: () = {
-//                _shared = MarkupParser()
-//            }()
-//        }
-//        return MarkupParser._shared
-//    }
-
-    func linkifyArticle(_ title: String="iPhone") -> String {
-
-//        var plaintext = String()
-//        var markup = String()
-//
-//
-//
-//
-//        WikipediaAPI.getArticleFor( title) { (article) in
-//            plaintext = article
-//            print(plaintext)
-//        }
-//
-//        WikipediaAPI.getRawMarkup(for: title) { (article) in
-//            markup = article
-//            print(markup)
-//        }
-
-        getStuff("iPhone")
+        MarkupParser.getPlaintextAndMarkupFor(title)
 
         return ""
     }
 
 
-    func getStuff(_ title: String) {
+    private class func getPlaintextAndMarkupFor(_ title: String) {
         WikipediaAPI.getArticleFor( title) { (plaintext) in
             WikipediaAPI.getRawMarkup(for: title) { (markup) in
-                self.doStuff(plaintext, markup)
+                MarkupParser.linkify(plaintext, markup)
             }
         }
     }
 
-    func doStuff(_ plaintext: String, _ markup: String) {
-        print(plaintext)
-        print("===========================================")
+    private class func linkify(_ plaintext: String, _ markup: String) {
         print(markup)
 
     }
