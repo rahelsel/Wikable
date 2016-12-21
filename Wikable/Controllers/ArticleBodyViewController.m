@@ -124,7 +124,6 @@
     NSString *searchTerm = cell.textLabel.text;
     
 //    self.searchResultsArray = [WikipediaAPI
-    
 //    cell.textLabel.text = self.searchResultsArray[indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"Test Cell"];
