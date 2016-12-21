@@ -87,6 +87,7 @@
     [article appendAttributedString:headline2];
     [article appendAttributedString:body2];
 
+    article.accessibilityTraits = UIAccessibilityTraitHeader;
 
     return article;
 }
