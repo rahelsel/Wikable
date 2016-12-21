@@ -14,8 +14,9 @@
 
 
 @interface ArticleBodyViewController () <UISearchBarDelegate>
-@property (weak, nonatomic) IBOutlet UITextView *bodyText;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIStackView *stackView;
+
 
 @property (strong, nonatomic) MarkupParser *markupParser;
 @end
@@ -34,7 +35,8 @@
                                                  name:UIContentSizeCategoryDidChangeNotification
                                                object:nil];
 
-    self.bodyText.editable = NO;
+    //TODO: fix this
+    //self.bodyText.editable = NO;
     //self.bodyText.text = [self getFakeArticle];  //@"";
 
     self.markupParser = [MarkupParser shared];
@@ -54,10 +56,10 @@
 {
     [super viewDidAppear:animated];
     [self configureView];
-    self.bodyText.attributedText = [self getFakeArticle];
+    [self getFakeArticle];
 }
 
--(NSAttributedString *)getFakeArticle{
+-(void)getFakeArticle{
 
     UIFont *bodyFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     UIFont *headlineFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
@@ -81,15 +83,41 @@
 
     NSAttributedString *body2 = [[NSAttributedString alloc] initWithString:ipsum
                                                                 attributes:@{NSFontAttributeName: bodyFont}];
-    NSMutableAttributedString *article = [[NSMutableAttributedString alloc] initWithAttributedString:headline1];
+    NSMutableAttributedString *section1 = [[NSMutableAttributedString alloc] initWithAttributedString:headline1];
+    [section1 appendAttributedString:body1];
+    NSMutableAttributedString *section2 = [[NSMutableAttributedString alloc] initWithAttributedString:headline2];
+    [section2 appendAttributedString:body2];
 
-    [article appendAttributedString:body1];
-    [article appendAttributedString:headline2];
-    [article appendAttributedString:body2];
+    //article.accessibilityTraits = UIAccessibilityTraitHeader;
 
-    article.accessibilityTraits = UIAccessibilityTraitHeader;
+//    self.bodyText.attributedText = headline1;
+//    self.bodyText.attributedText.accessibilityTraits = UIAccessibilityTraitHeader;
+//    self.bodyText.isAccessibilityElement = YES;
+//    self.bodyText.accessibilityTraits = UIAccessibilityTraitHeader;
+//    self.textview2.attributedText = body1;
+//    self.textview3.attributedText = headline2;
+//    self.textview3.attributedText.accessibilityTraits = UIAccessibilityTraitHeader;
+//    self.textview3.isAccessibilityElement = YES;
+//    self.textview3.accessibilityTraits = UIAccessibilityTraitHeader;
+//    self.textview4.attributedText = body2;
 
-    return article;
+    self.stackView.translatesAutoresizingMaskIntoConstraints = NO;
+    UITextView *textView1 = [[UITextView alloc] init];
+    textView1.attributedText = section1;
+    UITextView *textView2 = [[UITextView alloc] init];
+    textView2.attributedText = section2;
+    textView1.scrollEnabled = NO;
+    //textView2.scrollEnabled = YES;
+
+    [self.stackView addArrangedSubview:textView1];
+    [self.stackView addArrangedSubview:textView2];
+    [textView1.widthAnchor constraintEqualToConstant:self.stackView.bounds.size.width ].active = YES;
+    [textView2.widthAnchor constraintEqualToConstant:self.stackView.bounds.size.width ].active = YES;
+
+    self.scroll.
+    [self.stackView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+    [self.stackView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active = YES;
+
 }
 
 - (void)didChangePreferredContentSize:(NSNotification *)notification
@@ -103,7 +131,8 @@
     NSLog(@"%@", [[UIApplication sharedApplication] preferredContentSizeCategory] );
     //UIFont *myFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 
-    self.bodyText.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    //TODO: fix this
+    //self.bodyText.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 }
 
 
@@ -114,7 +143,8 @@
                      completion:^(NSString *article) {
                          
                          __strong typeof(bruceBanner) hulk = bruceBanner;
-                         hulk.bodyText.text = article;
+                         //TODO: fix this
+                         //hulk.bodyText.text = article;
                      }];
     
 }
