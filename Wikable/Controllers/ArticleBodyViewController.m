@@ -63,10 +63,10 @@
 
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    NSLog(@"LayoutSubviews happened");
-    NSLog(@"svFrameHeight: %f \ncontainerHeight: %f",
-          self.scrollView.frame.size.height,
-          self.containerView.frame.size.height);
+//    NSLog(@"LayoutSubviews happened");
+//    NSLog(@"svFrameHeight: %f \ncontainerHeight: %f",
+//          self.scrollView.frame.size.height,
+//          self.containerView.frame.size.height);
     //self.scrollView.contentSize = CGSizeMake(self.containerView.frame.size.width, self.containerView.frame.size.height);
 }
 
@@ -113,42 +113,69 @@
 //    self.textview4.attributedText = body2;
 
 
-    CGRect frame = self.containerView.frame;
-    frame.size.height = 300.0;
+//    CGRect frame = self.containerView.frame;
+//    frame.size.height = 300.0;
+//
+//    UITextView *textView1 = [[UITextView alloc] init];
+//    textView1.frame = frame;
+//    textView1.attributedText = section1;
+//    textView1.textContainer.lineBreakMode = NSLineBreakByWordWrapping;
+//
+//
+//    UITextView *textView2 = [[UITextView alloc] init];
+//    textView2.attributedText = section2;
+//    textView2.textContainer.lineBreakMode = NSLineBreakByWordWrapping;
+//    textView2.frame = frame;
+//    CGRect frame2 = CGRectMake(0.0, textView1.frame.size.height + 10., textView1.frame.size.width, 300.0);
+//    textView2.frame = frame2;
+//
+//    [self.containerView addSubview:textView1];
+//    [self.containerView addSubview:textView2];
+//    textView1.scrollEnabled = NO;
+//    textView2.scrollEnabled = NO;
+//    [self.view setNeedsLayout];
+//    [self.view layoutIfNeeded];
 
-    UITextView *textView1 = [[UITextView alloc] init];
-    textView1.frame = frame;
-
-
-    textView1.attributedText = section1;
-    textView1.textContainer.lineBreakMode = NSLineBreakByWordWrapping;
-    UITextView *textView2 = [[UITextView alloc] init];
-    textView2.attributedText = section2;
-    textView2.textContainer.lineBreakMode = NSLineBreakByWordWrapping;
-    textView2.frame = frame;
-    CGRect frame2 = CGRectMake(0.0, textView1.frame.size.height + 10., textView1.frame.size.width, 300.0);
-    textView2.frame = frame2;
-
-    [self.containerView addSubview:textView1];
-    [self.containerView addSubview:textView2];
-    textView1.scrollEnabled = NO;
-    textView2.scrollEnabled = NO;
-    [self.view setNeedsLayout];
-    [self.view layoutIfNeeded];
+    [self layoutTextViews:@[headline1, body1, headline2, body2]];
 }
 
 -(void)layoutTextViews:(NSArray *)views{
-    CGFloat sectionPad = 10.0;
+    CGFloat pad = 0.0;
+    CGFloat offset = 0.0;
+    UIFont *headlineFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
 
     for (NSAttributedString* text in views) {
-        CGRect frame = self.containerView.frame;
-        frame.size.height = 300.0;
+        NSRange rangeOfOne = NSMakeRange(0, 1);
+        CGRect textSize = [text boundingRectWithSize:CGSizeMake(CGRectGetWidth(self.containerView.frame), MAXFLOAT)
+                                             options:NSStringDrawingUsesLineFragmentOrigin
+                                             context:nil];
+
+        CGRect frame = CGRectMake(textSize.origin.x,
+                                  textSize.origin.y + offset,
+                                  CGRectGetWidth(self.containerView.frame),
+                                  textSize.size.height);
+        offset += frame.size.height + pad;
+
+        //NSLog(@"size: %f, %f", textSize.size.height, textSize.size.width);
+
         UITextView *textView = [[UITextView alloc] init];
         textView.frame = frame;
         textView.attributedText = text;
         textView.textContainer.lineBreakMode = NSLineBreakByWordWrapping;
-    }
+        textView.scrollEnabled = NO;
 
+        NSDictionary *attributes = [text attributesAtIndex:0 effectiveRange:&rangeOfOne];
+        if([attributes valueForKey:@"NSFont"] == headlineFont){
+            textView.accessibilityTraits = UIAccessibilityTraitHeader;
+        }
+
+
+        [self.containerView addSubview:textView];
+
+    }
+    NSLog(@"Font: %@", headlineFont);
+    [self.view setNeedsLayout];
+    [self.view layoutIfNeeded];
 }
 
 - (void)didChangePreferredContentSize:(NSNotification *)notification
