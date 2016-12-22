@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F23BB55C1E083D92008907C1 /* WikableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB55B1E083D92008907C1 /* WikableTests.m */; };
+		C2173A1A1E0C4FF200C49B19 /* ArticleBodyVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2173A191E0C4FF200C49B19 /* ArticleBodyVCTests.m */; };
+		C2173A1C1E0C5EAD00C49B19 /* WikipediaAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = C2173A1B1E0C5EAC00C49B19 /* WikipediaAPITest.m */; };
 		F23BB5671E083D92008907C1 /* WikableUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB5661E083D92008907C1 /* WikableUITests.m */; };
 		F23BB57D1E083F8E008907C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB57B1E083F8E008907C1 /* AppDelegate.m */; };
 		F23BB57E1E083F8E008907C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB57C1E083F8E008907C1 /* main.m */; };
@@ -38,10 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C2173A191E0C4FF200C49B19 /* ArticleBodyVCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleBodyVCTests.m; path = ../ArticleBodyVCTests.m; sourceTree = "<group>"; };
+		C2173A1B1E0C5EAC00C49B19 /* WikipediaAPITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WikipediaAPITest.m; path = ../Wikable/WikipediaAPITest.m; sourceTree = "<group>"; };
 		F23BB53E1E083D92008907C1 /* Wikable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wikable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23BB5521E083D92008907C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23BB5571E083D92008907C1 /* WikableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F23BB55B1E083D92008907C1 /* WikableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WikableTests.m; sourceTree = "<group>"; };
 		F23BB55D1E083D92008907C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23BB5621E083D92008907C1 /* WikableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23BB5661E083D92008907C1 /* WikableUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WikableUITests.m; sourceTree = "<group>"; };
@@ -131,7 +133,8 @@
 		F23BB55A1E083D92008907C1 /* WikableTests */ = {
 			isa = PBXGroup;
 			children = (
-				F23BB55B1E083D92008907C1 /* WikableTests.m */,
+				C2173A1B1E0C5EAC00C49B19 /* WikipediaAPITest.m */,
+				C2173A191E0C4FF200C49B19 /* ArticleBodyVCTests.m */,
 				F23BB55D1E083D92008907C1 /* Info.plist */,
 			);
 			path = WikableTests;
@@ -327,7 +330,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F23BB55C1E083D92008907C1 /* WikableTests.m in Sources */,
+				C2173A1C1E0C5EAD00C49B19 /* WikipediaAPITest.m in Sources */,
+				C2173A1A1E0C4FF200C49B19 /* ArticleBodyVCTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

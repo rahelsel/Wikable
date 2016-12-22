@@ -10,6 +10,7 @@
 
 @interface WikipediaAPI : NSObject
 
++(NSURL *)urlFrom:(NSString *)baseURL and:(NSString *)searchTerm;
 
 +(void)getArticleFor:(NSString * _Nonnull)title
           completion:(nullable void (^)(NSString * _Nonnull article))completion;
