@@ -187,7 +187,7 @@
 - (void)configureView
 {
     NSLog(@"%@", [[UIApplication sharedApplication] preferredContentSizeCategory] );
-    //UIFont *myFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    UIFont *myFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 
     //TODO: fix this
     //self.bodyText.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
