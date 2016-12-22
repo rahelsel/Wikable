@@ -236,6 +236,15 @@
         if (self.audioEngine.isRunning) {
             [self.audioEngine stop];
             [self.recognitionRequest endAudio];
+
+            NSLog(@"Search term is: %@", self.searchBar.text);
+
+            [WikipediaAPI getTitlesFor:self.searchBar.text
+                            completion:^(NSArray * _Nonnull results) {
+                                self.searchResultsArray = results;
+                                [self.searchTableView reloadData];
+                            }];
+
         } else {
             [self startRecording];
         }
