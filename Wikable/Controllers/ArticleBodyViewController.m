@@ -159,7 +159,12 @@
                     }];
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self.searchBar resignFirstResponder];
+    self.searchBar.text = searchBar.text;
 
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.searchResultsArray.count;
@@ -172,7 +177,6 @@
     cell.textLabel.text = self.searchResultsArray[indexPath.row];
     cell.textLabel.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
     cell.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
-    //cell.te
     cell.isAccessibilityElement = YES;
     cell.textLabel.isAccessibilityElement = YES;
     return cell;
@@ -187,15 +191,15 @@
     __weak typeof(self) bruceBanner = self;
     
     [WikipediaAPI getArticleFor: self.searchResultsArray[indexPath.row] completion:^(NSString *article) {
-        
         __strong typeof(bruceBanner) hulk = bruceBanner;
-        
         hulk.bodyText.text = article;
-        
         hulk.searchTableView.hidden = YES;
+        [hulk.searchBar endEditing:YES];
+        hulk.searchBar.text = self.searchResultsArray[indexPath.row];
         
     }];
 }
+
 
 
 //MARK: Accessibility related functions
