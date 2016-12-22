@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,6 +14,7 @@
             <connections>
                 <outlet property="bodyText" destination="MDO-RE-u2c" id="WyL-Ld-VVz"/>
                 <outlet property="searchBar" destination="BOa-Ou-ffP" id="oyA-Mb-l2I"/>
+                <outlet property="searchTableView" destination="Hjd-49-nC7" id="E8f-1D-0sv"/>
                 <outlet property="view" destination="uB1-Yr-3FQ" id="QUa-eK-Odx"/>
             </connections>
         </placeholder>
@@ -38,16 +40,24 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hjd-49-nC7">
+                    <rect key="frame" x="16" y="72" width="343" height="238"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="BOa-Ou-ffP" firstAttribute="top" secondItem="uB1-Yr-3FQ" secondAttribute="top" constant="20" id="8Nq-y0-V8V"/>
                 <constraint firstAttribute="bottom" secondItem="MDO-RE-u2c" secondAttribute="bottom" id="B2z-Rc-LnW"/>
+                <constraint firstItem="Hjd-49-nC7" firstAttribute="height" secondItem="MDO-RE-u2c" secondAttribute="height" multiplier="0.4" id="C8q-hg-5RL"/>
                 <constraint firstAttribute="trailing" secondItem="BOa-Ou-ffP" secondAttribute="trailing" id="E7H-eN-D4p"/>
                 <constraint firstItem="BOa-Ou-ffP" firstAttribute="leading" secondItem="uB1-Yr-3FQ" secondAttribute="leading" id="dM9-wv-XYr"/>
+                <constraint firstAttribute="trailing" secondItem="Hjd-49-nC7" secondAttribute="trailing" constant="16" id="fzg-Es-zDi"/>
                 <constraint firstAttribute="trailing" secondItem="MDO-RE-u2c" secondAttribute="trailing" constant="16" id="g2q-Eb-hhO"/>
                 <constraint firstItem="MDO-RE-u2c" firstAttribute="top" secondItem="BOa-Ou-ffP" secondAttribute="bottom" constant="8" id="iq3-zU-eDT"/>
+                <constraint firstItem="Hjd-49-nC7" firstAttribute="top" secondItem="BOa-Ou-ffP" secondAttribute="bottom" constant="8" id="jMD-Ff-MaA"/>
                 <constraint firstItem="MDO-RE-u2c" firstAttribute="leading" secondItem="uB1-Yr-3FQ" secondAttribute="leading" constant="16" id="t6e-Cc-keX"/>
+                <constraint firstItem="Hjd-49-nC7" firstAttribute="leading" secondItem="uB1-Yr-3FQ" secondAttribute="leading" constant="16" id="xD6-63-rj6"/>
             </constraints>
             <point key="canvasLocation" x="-300.5" y="24.5"/>
         </view>
