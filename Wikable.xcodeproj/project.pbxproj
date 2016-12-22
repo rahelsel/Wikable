@@ -200,7 +200,13 @@
 				TargetAttributes = {
 					508C31E01E0B3D6A00A8A4F5 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 679533JEG9;
+						DevelopmentTeam = AWF997WQMM;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+					F23BB5561E083D92008907C1 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = KUNVAN4RR6;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F23BB53D1E083D91008907C1;
 					};
@@ -417,7 +423,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = KUNVAN4RR6;
+				DEVELOPMENT_TEAM = AWF997WQMM;
 				INFOPLIST_FILE = Wikable/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -434,7 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = KUNVAN4RR6;
+				DEVELOPMENT_TEAM = AWF997WQMM;
 				INFOPLIST_FILE = Wikable/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
