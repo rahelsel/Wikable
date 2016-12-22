@@ -10,4 +10,6 @@
 
 @interface ArticleBodyViewController : UIViewController
 
+-(NSAttributedString *)getFakeArticle;
+
 @end

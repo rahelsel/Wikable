@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
+		C2173A1A1E0C4FF200C49B19 /* ArticleBodyVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2173A191E0C4FF200C49B19 /* ArticleBodyVCTests.m */; };
+		C2173A1C1E0C5EAD00C49B19 /* WikipediaAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = C2173A1B1E0C5EAC00C49B19 /* WikipediaAPITest.m */; };
+		F23BB5671E083D92008907C1 /* WikableUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB5661E083D92008907C1 /* WikableUITests.m */; };
+
 		507F88B51E0B4E7300F1A4DD /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 507F88B41E0B4E7300F1A4DD /* SearchCell.xib */; };
 		508C31E41E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 508C31E31E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests.m */; };
+
 		F23BB57D1E083F8E008907C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB57B1E083F8E008907C1 /* AppDelegate.m */; };
 		F23BB57E1E083F8E008907C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB57C1E083F8E008907C1 /* main.m */; };
 		F23BB5801E083FAA008907C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F23BB57F1E083FAA008907C1 /* Assets.xcassets */; };
@@ -31,12 +37,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+
+		C2173A191E0C4FF200C49B19 /* ArticleBodyVCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleBodyVCTests.m; path = ../ArticleBodyVCTests.m; sourceTree = "<group>"; };
+		C2173A1B1E0C5EAC00C49B19 /* WikipediaAPITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WikipediaAPITest.m; path = ../Wikable/WikipediaAPITest.m; sourceTree = "<group>"; };
+		
+		F23BB5521E083D92008907C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F23BB5571E083D92008907C1 /* WikableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F23BB55D1E083D92008907C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F23BB5621E083D92008907C1 /* WikableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F23BB5661E083D92008907C1 /* WikableUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WikableUITests.m; sourceTree = "<group>"; };
+		F23BB5681E083D92008907C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+
 		507F88B41E0B4E7300F1A4DD /* SearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		508C31E11E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArticleBodyViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		508C31E31E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleBodyViewControllerTests.m; sourceTree = "<group>"; };
 		508C31E51E0B3D6A00A8A4F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23BB53E1E083D92008907C1 /* Wikable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wikable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23BB5521E083D92008907C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+
 		F23BB57A1E083F8E008907C1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Supporting Files/AppDelegate.h"; sourceTree = "<group>"; };
 		F23BB57B1E083F8E008907C1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "Supporting Files/AppDelegate.m"; sourceTree = "<group>"; };
 		F23BB57C1E083F8E008907C1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
@@ -119,6 +137,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+
+		F23BB55A1E083D92008907C1 /* WikableTests */ = {
+			isa = PBXGroup;
+			children = (
+				C2173A1B1E0C5EAC00C49B19 /* WikipediaAPITest.m */,
+				C2173A191E0C4FF200C49B19 /* ArticleBodyVCTests.m */,
+				F23BB55D1E083D92008907C1 /* Info.plist */,
+			);
+			path = WikableTests;
+			sourceTree = "<group>";
+		};
+		F23BB5651E083D92008907C1 /* WikableUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F23BB5661E083D92008907C1 /* WikableUITests.m */,
+				F23BB5681E083D92008907C1 /* Info.plist */,
+			);
+			path = WikableUITests;
+			sourceTree = "<group>";
+		};
+
+
 		F23BB5741E083F5A008907C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +314,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F23BB5531E083D92008907C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2173A1C1E0C5EAD00C49B19 /* WikipediaAPITest.m in Sources */,
+				C2173A1A1E0C4FF200C49B19 /* ArticleBodyVCTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F23BB55E1E083D92008907C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F23BB5671E083D92008907C1 /* WikableUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+
+
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
