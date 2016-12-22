@@ -10,14 +10,22 @@
 #import "Wikable-Swift.h"
 #import "WikipediaAPI.h"
 
+@import Speech;
 
 
 
-@interface ArticleBodyViewController () <UISearchBarDelegate>
+
+@interface ArticleBodyViewController () <UISearchBarDelegate, SFSpeechRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *bodyText;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-
 @property (strong, nonatomic) MarkupParser *markupParser;
+
+@property (strong, nonatomic) SFSpeechRecognizer *speechRecognizer;
+@property (strong, nonatomic) SFSpeechAudioBufferRecognitionRequest *recognitionRequest;
+@property (strong, nonatomic) SFSpeechRecognitionTask *recognitionTask;
+@property (strong, nonatomic) AVAudioEngine *audioEngine;
+@property (nonatomic) BOOL isSpeechRecognationAuthorized;
+
 @end
 
 @implementation ArticleBodyViewController
@@ -40,15 +48,16 @@
     self.markupParser = [MarkupParser shared];
     [self.markupParser linkifyArticle:@"iPhone"];
 
-//    [WikipediaAPI getRawMarkupFor:@"iPhone"
-//                       completion:^(NSString *markup) {
-//                           NSLog(@"%@", markup);
-//                       }];
-//    [WikipediaAPI getTitlesFor:@"iPhone"
-//                    completion:^(NSArray *titles) {
-//                        NSLog(@"%@", titles);
-//                    }];
+    //Speech-to-text stuff below
+    self.isSpeechRecognationAuthorized = NO;
+    self.speechRecognizer = [[SFSpeechRecognizer alloc]initWithLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"en-US"]];
+    self.speechRecognizer.delegate = self;
+    self.audioEngine = [[AVAudioEngine alloc]init];
+    [self requestSpeechRecognationAuthorization];
+
+    [self searchBarDoubleTapped];
 }
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -123,5 +132,110 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+//MARK: Speech-to-text related functions below
+
+-(void) requestSpeechRecognationAuthorization {
+    [SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
+        BOOL speechRecognitionStatus = false;
+        switch (status) {
+            case SFSpeechRecognizerAuthorizationStatusAuthorized:
+                speechRecognitionStatus = true;
+                NSLog(@"***Speech Recognition Authorized");
+                break;
+            case SFSpeechRecognizerAuthorizationStatusNotDetermined:
+                NSLog(@"***Speech Recognition Status Not Detemined");
+                break;
+            case SFSpeechRecognizerAuthorizationStatusDenied:
+                NSLog(@"***Speech Recognition Status Denied");
+                break;
+            case SFSpeechRecognizerAuthorizationStatusRestricted:
+                NSLog(@"***Speech Recognition Status Restricted");
+                break;
+
+            default:
+                break;
+        }
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.isSpeechRecognationAuthorized = speechRecognitionStatus;
+        });
+
+    }];
+
+}
+
+-(void) searchBarDoubleTapped {
+    if (self.audioEngine.isRunning) {
+        [self.audioEngine stop];
+        [self.recognitionRequest endAudio];
+    } else {
+        [self startRecording];
+    }
+}
+
+-(void) startRecording {
+
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *setCategoryError;
+    [session setCategory:AVAudioSessionCategoryRecord error:&setCategoryError];
+    NSError *setModeError;
+    [session setMode:AVAudioSessionModeMeasurement error:&setModeError];
+    NSError *setActiveError;
+    [session setActive:true error:&setActiveError];
+    //setActive(true, with: .notifyOthersOnDeactivation)
+
+    if (setCategoryError || setModeError ||  setActiveError) {
+        return;
+    }
+
+    self.recognitionRequest = [[SFSpeechAudioBufferRecognitionRequest alloc]init];
+    self.recognitionRequest.shouldReportPartialResults = true;
+
+    if (!self.audioEngine.inputNode) {
+        NSLog(@"***No Audio engine input node");
+    }
+
+    [self.speechRecognizer recognitionTaskWithRequest:self.recognitionRequest resultHandler:^(SFSpeechRecognitionResult * _Nullable result, NSError * _Nullable error) {
+        if (error == nil) {
+            if (result != nil ) {
+                self.searchBar.text = [result bestTranscription].formattedString;
+
+                if (result.isFinal){
+                    [self.audioEngine stop];
+                }
+            }
+
+        } else {
+            //there is an error stop the audio
+            [self.audioEngine stop];
+        }
+    }];
+
+
+    if (self.audioEngine.inputNode) {
+        AVAudioFormat *recordingFormat = [self.audioEngine.inputNode outputFormatForBus:0];
+
+        [self.audioEngine.inputNode installTapOnBus:0 bufferSize:1024 format:recordingFormat block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
+            [self.recognitionRequest appendAudioPCMBuffer:buffer];
+        }];
+
+    }
+
+    [self.audioEngine prepare];
+
+    NSError *audioStartError;
+    [self.audioEngine startAndReturnError:&audioStartError];
+
+    if (!audioStartError) {
+        NSLog(@"***No Error from audio engine");
+    } else {
+        NSLog(@"***Can't start audio audio engine");
+    }
+
+    self.searchBar.text = @"Say something, I'm listening";
+    
+}
+
 
 @end
