@@ -202,33 +202,39 @@
 //MARK: Speech-to-text related functions below
 
 -(void) requestSpeechRecognationAuthorization {
-    [SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
-        BOOL speechRecognitionStatus = false;
-        switch (status) {
-            case SFSpeechRecognizerAuthorizationStatusAuthorized:
-                speechRecognitionStatus = true;
-                NSLog(@"***Speech Recognition Authorized");
-                break;
-            case SFSpeechRecognizerAuthorizationStatusNotDetermined:
-                NSLog(@"***Speech Recognition Status Not Detemined");
-                break;
-            case SFSpeechRecognizerAuthorizationStatusDenied:
-                NSLog(@"***Speech Recognition Status Denied");
-                break;
-            case SFSpeechRecognizerAuthorizationStatusRestricted:
-                NSLog(@"***Speech Recognition Status Restricted");
-                break;
+    
+    SFSpeechRecognizerAuthorizationStatus authStatus = [SFSpeechRecognizer authorizationStatus];
 
-            default:
-                break;
-        }
+    if (authStatus == 3) {
+        self.isSpeechRecognationAuthorized = true;
+    } else {
+        [SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
+            BOOL speechRecognitionStatus = false;
+            switch (status) {
+                case SFSpeechRecognizerAuthorizationStatusAuthorized:
+                    speechRecognitionStatus = true;
+                    NSLog(@"***Speech Recognition Authorized");
+                    break;
+                case SFSpeechRecognizerAuthorizationStatusNotDetermined:
+                    NSLog(@"***Speech Recognition Status Not Detemined");
+                    break;
+                case SFSpeechRecognizerAuthorizationStatusDenied:
+                    NSLog(@"***Speech Recognition Status Denied");
+                    break;
+                case SFSpeechRecognizerAuthorizationStatusRestricted:
+                    NSLog(@"***Speech Recognition Status Restricted");
+                    break;
 
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.isSpeechRecognationAuthorized = speechRecognitionStatus;
-        });
+                default:
+                    break;
+            }
 
-    }];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.isSpeechRecognationAuthorized = speechRecognitionStatus;
+            });
 
+        }];
+    }
 }
 
 -(void) searchBarDoubleTapped {
