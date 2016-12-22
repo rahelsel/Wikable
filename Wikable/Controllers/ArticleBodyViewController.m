@@ -15,7 +15,9 @@
 
 @interface ArticleBodyViewController () <UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UIStackView *stackView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewHeightConstraint;
 
 
 @property (strong, nonatomic) MarkupParser *markupParser;
@@ -57,6 +59,15 @@
     [super viewDidAppear:animated];
     [self configureView];
     [self getFakeArticle];
+}
+
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    NSLog(@"LayoutSubviews happened");
+    NSLog(@"svFrameHeight: %f \ncontainerHeight: %f",
+          self.scrollView.frame.size.height,
+          self.containerView.frame.size.height);
+    //self.scrollView.contentSize = CGSizeMake(self.containerView.frame.size.width, self.containerView.frame.size.height);
 }
 
 -(void)getFakeArticle{
@@ -101,23 +112,29 @@
 //    self.textview3.accessibilityTraits = UIAccessibilityTraitHeader;
 //    self.textview4.attributedText = body2;
 
-    self.stackView.translatesAutoresizingMaskIntoConstraints = NO;
+
+    CGRect frame = self.containerView.frame;
+    frame.size.height = 300.0;
+
     UITextView *textView1 = [[UITextView alloc] init];
+    textView1.frame = frame;
+
+
     textView1.attributedText = section1;
+    textView1.textContainer.lineBreakMode = NSLineBreakByWordWrapping;
     UITextView *textView2 = [[UITextView alloc] init];
     textView2.attributedText = section2;
+    textView2.textContainer.lineBreakMode = NSLineBreakByWordWrapping;
+    textView2.frame = frame;
+    CGRect frame2 = CGRectMake(0.0, textView1.frame.size.height + 10., textView1.frame.size.width, 300.0);
+    textView2.frame = frame2;
+
+    [self.containerView addSubview:textView1];
+    [self.containerView addSubview:textView2];
     textView1.scrollEnabled = NO;
-    //textView2.scrollEnabled = YES;
-
-    [self.stackView addArrangedSubview:textView1];
-    [self.stackView addArrangedSubview:textView2];
-    [textView1.widthAnchor constraintEqualToConstant:self.stackView.bounds.size.width ].active = YES;
-    [textView2.widthAnchor constraintEqualToConstant:self.stackView.bounds.size.width ].active = YES;
-
-    self.scroll.
-    [self.stackView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-    [self.stackView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active = YES;
-
+    textView2.scrollEnabled = NO;
+    [self.view setNeedsLayout];
+    [self.view layoutIfNeeded];
 }
 
 - (void)didChangePreferredContentSize:(NSNotification *)notification
