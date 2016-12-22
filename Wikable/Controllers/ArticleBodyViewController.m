@@ -136,7 +136,7 @@
 
 
 
-//////////// DELEGATE METHODS \\\\\\\\\\\\\\\
+//MARK: DELEGATE METHODS
 
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
@@ -144,7 +144,9 @@
     if ([searchBar.text isEqualToString: @""]) {
         self.searchTableView.hidden = YES;
     } else {
+        
     self.searchTableView.hidden = NO;
+        
     }
     
     NSString *searchTerm = self.searchBar.text;
@@ -244,7 +246,7 @@
             [self.recognitionRequest endAudio];
 
             NSLog(@"Search term is: %@", self.searchBar.text);
-
+            self.searchTableView.hidden = NO;
             [WikipediaAPI getTitlesFor:self.searchBar.text
                             completion:^(NSArray * _Nonnull results) {
                                 self.searchResultsArray = results;
