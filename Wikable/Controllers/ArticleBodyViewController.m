@@ -55,7 +55,7 @@
     self.audioEngine = [[AVAudioEngine alloc]init];
     [self requestSpeechRecognationAuthorization];
 
-    [self searchBarDoubleTapped];
+
 }
 
 
@@ -133,6 +133,15 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+
+//MARK: Accessibility related functions
+
+- (BOOL)accessibilityPerformMagicTap {
+    [self searchBarDoubleTapped];
+    NSLog(@"***Do some fancy magic here");
+    return true;
+}
+
 //MARK: Speech-to-text related functions below
 
 -(void) requestSpeechRecognationAuthorization {
@@ -166,15 +175,18 @@
 }
 
 -(void) searchBarDoubleTapped {
-    if (self.audioEngine.isRunning) {
-        [self.audioEngine stop];
-        [self.recognitionRequest endAudio];
-    } else {
-        [self startRecording];
+    if (self.isSpeechRecognationAuthorized) {
+        if (self.audioEngine.isRunning) {
+            [self.audioEngine stop];
+            [self.recognitionRequest endAudio];
+        } else {
+            [self startRecording];
+        }
     }
 }
 
 -(void) startRecording {
+
 
     AVAudioSession *session = [AVAudioSession sharedInstance];
     NSError *setCategoryError;
