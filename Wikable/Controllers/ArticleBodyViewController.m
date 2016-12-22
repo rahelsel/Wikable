@@ -159,7 +159,12 @@
                     }];
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self.searchBar resignFirstResponder];
+    self.searchBar.text = searchBar.text;
 
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.searchResultsArray.count;
@@ -170,6 +175,10 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchCell" forIndexPath:indexPath];
     cell.textLabel.text = self.searchResultsArray[indexPath.row];
+    cell.textLabel.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
+    cell.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
+    cell.isAccessibilityElement = YES;
+    cell.textLabel.isAccessibilityElement = YES;
     return cell;
 }
 
@@ -182,15 +191,15 @@
     __weak typeof(self) bruceBanner = self;
     
     [WikipediaAPI getArticleFor: self.searchResultsArray[indexPath.row] completion:^(NSString *article) {
-        
         __strong typeof(bruceBanner) hulk = bruceBanner;
-        
         hulk.bodyText.text = article;
-        
         hulk.searchTableView.hidden = YES;
+        [hulk.searchBar endEditing:YES];
+        hulk.searchBar.text = self.searchResultsArray[indexPath.row];
         
     }];
 }
+
 
 
 //MARK: Accessibility related functions
@@ -245,14 +254,12 @@
             [self.audioEngine stop];
             [self.recognitionRequest endAudio];
 
-            NSLog(@"Search term is: %@", self.searchBar.text);
             self.searchTableView.hidden = NO;
             [WikipediaAPI getTitlesFor:self.searchBar.text
                             completion:^(NSArray * _Nonnull results) {
                                 self.searchResultsArray = results;
                                 [self.searchTableView reloadData];
                             }];
-
         } else {
             [self startRecording];
         }
@@ -260,8 +267,6 @@
 }
 
 -(void) startRecording {
-
-
     AVAudioSession *session = [AVAudioSession sharedInstance];
     NSError *setCategoryError;
     [session setCategory:AVAudioSessionCategoryRecord error:&setCategoryError];
