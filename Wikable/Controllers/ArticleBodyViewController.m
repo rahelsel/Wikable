@@ -137,6 +137,20 @@
     [self.view layoutIfNeeded];
 }
 
+-(void)layoutTextViews:(NSArray *)views{
+    CGFloat sectionPad = 10.0;
+
+    for (NSAttributedString* text in views) {
+        CGRect frame = self.containerView.frame;
+        frame.size.height = 300.0;
+        UITextView *textView = [[UITextView alloc] init];
+        textView.frame = frame;
+        textView.attributedText = text;
+        textView.textContainer.lineBreakMode = NSLineBreakByWordWrapping;
+    }
+
+}
+
 - (void)didChangePreferredContentSize:(NSNotification *)notification
 {
     [self configureView];
