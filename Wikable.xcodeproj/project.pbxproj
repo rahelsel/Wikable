@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		507F88B51E0B4E7300F1A4DD /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 507F88B41E0B4E7300F1A4DD /* SearchCell.xib */; };
 		508C31E41E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 508C31E31E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests.m */; };
 		F23BB57D1E083F8E008907C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB57B1E083F8E008907C1 /* AppDelegate.m */; };
 		F23BB57E1E083F8E008907C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB57C1E083F8E008907C1 /* main.m */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		507F88B41E0B4E7300F1A4DD /* SearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		508C31E11E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArticleBodyViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		508C31E31E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleBodyViewControllerTests.m; sourceTree = "<group>"; };
 		508C31E51E0B3D6A00A8A4F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				F23BB57F1E083FAA008907C1 /* Assets.xcassets */,
 				F23BB5861E0840F1008907C1 /* ArticleView.xib */,
+				507F88B41E0B4E7300F1A4DD /* SearchCell.xib */,
 				F23BB5811E083FB6008907C1 /* LaunchScreen.storyboard */,
 			);
 			name = Views;
@@ -242,6 +245,7 @@
 			files = (
 				F23BB5881E0840F1008907C1 /* ArticleView.xib in Resources */,
 				F23BB5831E083FB6008907C1 /* LaunchScreen.storyboard in Resources */,
+				507F88B51E0B4E7300F1A4DD /* SearchCell.xib in Resources */,
 				F23BB5801E083FAA008907C1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,6 +455,7 @@
 				508C31EA1E0B3D6B00A8A4F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F23BB5391E083D91008907C1 /* Build configuration list for PBXProject "Wikable" */ = {
 			isa = XCConfigurationList;

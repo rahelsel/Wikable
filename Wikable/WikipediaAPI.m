@@ -20,7 +20,7 @@ static NSString *kBaseURLforTitleSearch = @"https://en.wikipedia.org/w/api.php?a
 
 @implementation WikipediaAPI
 
-+(void)getContentsOf:(NSURL *)url
++(void)getContentsOf:(NSURL *) url
              success:(void (^)(NSData *data))success
              failure:(void(^)(NSError* error))failure {
 
