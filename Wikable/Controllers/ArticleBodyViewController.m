@@ -170,6 +170,11 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchCell" forIndexPath:indexPath];
     cell.textLabel.text = self.searchResultsArray[indexPath.row];
+    cell.textLabel.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
+    cell.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
+    //cell.te
+    cell.isAccessibilityElement = YES;
+    cell.textLabel.isAccessibilityElement = YES;
     return cell;
 }
 
@@ -245,14 +250,12 @@
             [self.audioEngine stop];
             [self.recognitionRequest endAudio];
 
-            NSLog(@"Search term is: %@", self.searchBar.text);
             self.searchTableView.hidden = NO;
             [WikipediaAPI getTitlesFor:self.searchBar.text
                             completion:^(NSArray * _Nonnull results) {
                                 self.searchResultsArray = results;
                                 [self.searchTableView reloadData];
                             }];
-
         } else {
             [self startRecording];
         }
@@ -260,8 +263,6 @@
 }
 
 -(void) startRecording {
-
-
     AVAudioSession *session = [AVAudioSession sharedInstance];
     NSError *setCategoryError;
     [session setCategory:AVAudioSessionCategoryRecord error:&setCategoryError];
