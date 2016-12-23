@@ -21,13 +21,14 @@
 
 
 @property (weak, nonatomic) IBOutlet UITableView *searchTableView;
-@property(strong, nonatomic) NSArray *searchResultsArray;
+@property (strong, nonatomic) NSArray *searchResultsArray;
 @property (strong, nonatomic) SFSpeechRecognizer *speechRecognizer;
 @property (strong, nonatomic) SFSpeechAudioBufferRecognitionRequest *recognitionRequest;
 @property (strong, nonatomic) SFSpeechRecognitionTask *recognitionTask;
 @property (strong, nonatomic) AVAudioEngine *audioEngine;
 @property (nonatomic) BOOL isSpeechRecognationAuthorized;
 
+@property (nonatomic) NSString *currentTitle;
 
 @end
 
@@ -45,17 +46,18 @@
     UINib *searchTermCells = [UINib nibWithNibName:@"SearchCell" bundle:nil];
     [self.searchTableView registerNib:searchTermCells forCellReuseIdentifier:@"searchCell"];
 
-    if (!UIAccessibilityIsReduceTransparencyEnabled()) {
-        self.searchTableView.backgroundColor = [UIColor clearColor];
-        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-        UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
-        blurView.frame = self.searchTableView.bounds;
-        blurView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.searchTableView.backgroundView = blurView;
-        self.searchTableView.separatorEffect = [UIVibrancyEffect effectForBlurEffect:blur];
-    } else {
+    //TODO: get blur view working
+//    if (!UIAccessibilityIsReduceTransparencyEnabled()) {
+//        self.searchTableView.backgroundColor = [UIColor clearColor];
+//        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+//        UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
+//        blurView.frame = self.searchTableView.bounds;
+//        blurView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//        self.searchTableView.backgroundView = blurView;
+//        self.searchTableView.separatorEffect = [UIVibrancyEffect effectForBlurEffect:blur];
+//    } else {
         self.searchTableView.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
-    }
+//    }
 
     self.searchTableView.hidden = YES;
     
@@ -69,7 +71,6 @@
     self.bodyText.text = @"";
 
     self.markupParser = [MarkupParser shared];
-    //[self.markupParser linkifyArticle:@"iPhone"];
 
     //Speech-to-text stuff below
     self.isSpeechRecognationAuthorized = NO;
@@ -78,38 +79,30 @@
     self.audioEngine = [[AVAudioEngine alloc]init];
     [self requestSpeechRecognationAuthorization];
 
-
 }
 
-
-- (void)viewDidAppear:(BOOL)animated
-{
+-(void)viewWillAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self configureView];
 }
 
--(NSAttributedString *)getFakeArticle{
 
+-(NSAttributedString *)getFakeArticle{
+    //TODO: Keeping this for now for testing multiple textviews on a scrollview (see multitext branch)
     UIFont *bodyFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     UIFont *headlineFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
-
     NSString *lorem = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum ipsum lobortis ligula maximus lobortis. Maecenas laoreet nibh ligula, ut interdum metus rhoncus quis. Pellentesque finibus dapibus ipsum, sit amet porta lacus finibus at. In et lorem eleifend, aliquam lorem a, ultrices mi. Sed iaculis pretium pretium. Suspendisse potenti. Vestibulum condimentum cursus nulla, ut facilisis nisl congue sed. Mauris in commodo magna. Nulla vulputate at mi sed laoreet. Morbi dapibus tempor pellentesque. Mauris tincidunt sapien ipsum, id convallis sem efficitur vitae.\n\n";
 
     NSString *ipsum = @"Ut hendrerit interdum risus eget tincidunt. Cras eget auctor metus. Proin nec malesuada diam, eu iaculis nulla. Integer eu lacinia lorem, in vulputate neque. Suspendisse non blandit eros. Aliquam luctus aliquam finibus. Ut molestie ut mauris eget semper. Aliquam viverra dui odio, sit amet blandit enim mollis a. Cras sollicitudin dolor ut commodo porta. Nullam felis eros, porttitor et aliquet at, egestas non mi. Integer venenatis lorem sed tellus maximus, tincidunt tristique odio tempus. Sed urna massa, fringilla vel faucibus vitae, ullamcorper non libero. Praesent vel lacus in ipsum tempor fermentum. Praesent nisl nulla, laoreet nec lacus nec, volutpat sodales nisl. Praesent consectetur, mauris eu pharetra fermentum, nunc nisi commodo est, in consectetur sapien nunc vulputate nulla.\n\n";
-
-
 
     NSAttributedString *headline1 = [[NSAttributedString alloc] initWithString:@"Headline 1\n\n"
                                                                   attributes:@{NSFontAttributeName: headlineFont}];
     NSAttributedString *headline2 = [[NSAttributedString alloc] initWithString:@"Headline 2\n\n"
                                                                   attributes:@{NSFontAttributeName: headlineFont}];
-
     headline1.accessibilityTraits = UIAccessibilityTraitHeader;
     headline2.accessibilityTraits = UIAccessibilityTraitHeader;
-
     NSAttributedString *body1 = [[NSAttributedString alloc] initWithString:lorem
                                                                 attributes:@{NSFontAttributeName: bodyFont}];
-
     NSAttributedString *body2 = [[NSAttributedString alloc] initWithString:ipsum
                                                                 attributes:@{NSFontAttributeName: bodyFont}];
     NSMutableAttributedString *article = [[NSMutableAttributedString alloc] initWithAttributedString:headline1];
@@ -123,26 +116,23 @@
     return article;
 }
 
-- (void)didChangePreferredContentSize:(NSNotification *)notification
-{
+- (void)didChangePreferredContentSize:(NSNotification *)notification {
     [self configureView];
 }
 
 
-- (void)configureView
-{
-    NSLog(@"%@", [[UIApplication sharedApplication] preferredContentSizeCategory] );
-    UIFont *myFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-
-    self.bodyText.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+- (void)configureView {
+    //TODO: Redecorating text isnt working.
+    __weak typeof(self) bruceBanner = self;
+    [self.markupParser redecorate:^(NSAttributedString * _Nonnull article) {
+        __strong typeof(bruceBanner) hulk = bruceBanner;
+        hulk.bodyText.attributedText = article;
+    }];
 }
 
--(void)dealloc
-{
+-(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
-
 
 
 //MARK: DELEGATE METHODS
@@ -197,17 +187,17 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.currentTitle = self.searchResultsArray[indexPath.row];
 
     __weak typeof(self) bruceBanner = self;
     [self.markupParser decoratePlaintext:self.searchResultsArray[indexPath.row]
                               completion:^(NSAttributedString * _Nonnull article) {
         __strong typeof(bruceBanner) hulk = bruceBanner;
-        NSString *title = hulk.searchResultsArray[indexPath.row];
 
         hulk.bodyText.attributedText = article;
         hulk.searchTableView.hidden = YES;
         [hulk.searchBar endEditing:YES];
-        hulk.searchBar.text = title;
+        hulk.searchBar.text = hulk.currentTitle;
     }];
 }
 

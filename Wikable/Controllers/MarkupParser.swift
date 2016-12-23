@@ -75,11 +75,7 @@ func ~=<T: RegularExpressionMatchable>(pattern: Regex, matchable: T) -> Bool {
 }
 
 
-private let kTitle = UIFont.preferredFont(forTextStyle: .title1)
-private let kHeadline = UIFont.preferredFont(forTextStyle: .headline)
-private let kSubHeadline = UIFont.preferredFont(forTextStyle: .subheadline)
-private let kSubSubHeadline = UIFont.preferredFont(forTextStyle: .title2)
-private let kBody = UIFont.preferredFont(forTextStyle: .body)
+
 
 // This has to live outside the class for it to be available to a computed property,
 // which we need for use of our singleton with bridging headers
@@ -87,17 +83,36 @@ private let kBody = UIFont.preferredFont(forTextStyle: .body)
 private let sharedMarkupParser = MarkupParser()
 
 
+
 class MarkupParser: NSObject {
+    private var currentContent = (title: "", plaintext: "")
     class var shared: MarkupParser{
         return sharedMarkupParser
     }
+
+    class var titleFont: UIFont {
+        return UIFont.preferredFont(forTextStyle: .title1)
+    }
+    class var headlineFont: UIFont {
+        return UIFont.preferredFont(forTextStyle: .headline)
+    }
+    class var subHeadlineFont: UIFont {
+        return UIFont.preferredFont(forTextStyle: .subheadline)
+    }
+    class var subSubHeadlineFont: UIFont {
+            return UIFont.preferredFont(forTextStyle: .title2)
+    }
+    class var bodyFont: UIFont {
+        return UIFont.preferredFont(forTextStyle: .body)
+    }
+
     override init(){}
 
     private class func decorate(_ title: String, _ plaintext: String) -> [NSAttributedString] {
 
         let decoratedTitle =
             NSMutableAttributedString(string: "\(title)\n",
-                                      attributes: [NSFontAttributeName: kTitle])
+                                      attributes: [NSFontAttributeName: titleFont])
         var decoratedLines = plaintext.components(separatedBy: .newlines).flatMap{
             return MarkupParser.setFontStyle($0)
         }
@@ -106,6 +121,13 @@ class MarkupParser: NSObject {
         return decoratedLines
     }
 
+    func redecorate(_ completion: (NSAttributedString) -> ()) {
+        let decoratedLines = MarkupParser.decorate(currentContent.title, currentContent.plaintext)
+        let decoratedText = decoratedLines.joined(separator: "\n")
+        //print(decoratedText)
+        completion(decoratedText)
+
+    }
 
 
     private class func setFontStyle(_ line: String) -> NSAttributedString {
@@ -118,16 +140,16 @@ class MarkupParser: NSObject {
 
         switch(line){
         case subSubHeadline:
-            style = kSubSubHeadline
+            style = subSubHeadlineFont
             string = subSubHeadline.extract(line)
         case subHeadline:
-            style = kSubHeadline
+            style = subHeadlineFont
             string = subHeadline.extract(line)
         case headline:
-            style = kHeadline
+            style = headlineFont
             string = headline.extract(line)
         default:
-            style = kBody
+            style = bodyFont
             string = line
         }
         return NSAttributedString.init(string: string,
@@ -144,11 +166,11 @@ class MarkupParser: NSObject {
     }
 
     func decoratePlaintext(_ title: String,
-                           completion: @escaping (NSAttributedString) -> ()) {
+                              completion: @escaping (NSAttributedString) -> ()) {
         WikipediaAPI.getArticleFor( title ) { (plaintext) in
+            self.currentContent = (title, plaintext)
             let decoratedLines = MarkupParser.decorate(title, plaintext)
             let decoratedText = decoratedLines.joined(separator: "\n")
-            //print(decoratedText)
             completion(decoratedText)
         }
     }
