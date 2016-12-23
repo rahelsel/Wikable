@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "ArticleBodyViewController.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 @interface AppDelegate ()
 
@@ -18,13 +21,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    ArticleBodyViewController *articleVC = [[ArticleBodyViewController alloc] init];
-
-
-    self.window = [[UIWindow alloc] init];
-    self.window.rootViewController = articleVC;
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = [[ArticleBodyViewController alloc] initWithNibName:@"ArticleView" bundle:nil];
     [self.window makeKeyAndVisible];
 
+    [Fabric with:@[[Crashlytics class]]];
 
     return YES;
 }
