@@ -215,7 +215,7 @@
 					};
 					F23BB53D1E083D91008907C1 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 679533JEG9;
+						DevelopmentTeam = AWF997WQMM;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -442,6 +442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+
 				DEVELOPMENT_TEAM = 679533JEG9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -463,11 +464,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+
 				DEVELOPMENT_TEAM = 679533JEG9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+
 				INFOPLIST_FILE = Wikable/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
