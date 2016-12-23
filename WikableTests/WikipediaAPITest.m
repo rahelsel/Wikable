@@ -36,7 +36,7 @@
     NSURL *testNSURL = [WikipediaAPI urlFrom:testString1 and:testString2];
 
     NSLog(@"%@", testNSURL.absoluteString);
-
+    
     XCTAssertTrue(![testNSURL.absoluteString containsString:@" "], @"Still contains space character.");
 }
 
