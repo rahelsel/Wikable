@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) MarkupParser *markupParser;
 
-
 @property (weak, nonatomic) IBOutlet UITableView *searchTableView;
 @property (strong, nonatomic) NSArray *searchResultsArray;
 @property (strong, nonatomic) SFSpeechRecognizer *speechRecognizer;
@@ -34,8 +33,6 @@
 
 @implementation ArticleBodyViewController
 
-
-
 -(void)viewDidLoad {
     
     [super viewDidLoad];
@@ -48,8 +45,8 @@
 
     //TODO: get blur view working
 //    if (!UIAccessibilityIsReduceTransparencyEnabled()) {
-//        self.searchTableView.backgroundColor = [UIColor clearColor];
-//        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+//        //self.searchTableView.backgroundColor = [UIColor clearColor];
+//        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
 //        UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
 //        blurView.frame = self.searchTableView.bounds;
 //        blurView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -60,8 +57,7 @@
 //    }
 
     self.searchTableView.hidden = YES;
-    
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didChangePreferredContentSize:)
                                                  name:UIContentSizeCategoryDidChangeNotification
@@ -137,7 +133,6 @@
 
 //MARK: DELEGATE METHODS
 
-
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
     if ([searchBar.text isEqualToString: @""]) {
@@ -175,9 +170,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchCell" forIndexPath:indexPath];
     cell.textLabel.text = self.searchResultsArray[indexPath.row];
     //cell.textLabel.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
-    cell.textLabel.backgroundColor = [UIColor clearColor];
+    //cell.textLabel.backgroundColor = [UIColor clearColor];
     //cell.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
-    cell.backgroundColor = [UIColor clearColor];
+    //cell.backgroundColor = [UIColor clearColor];
 
     cell.isAccessibilityElement = YES;
     cell.textLabel.isAccessibilityElement = YES;
