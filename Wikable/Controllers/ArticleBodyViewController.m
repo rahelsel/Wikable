@@ -56,7 +56,7 @@
                                                object:nil];
 
     self.bodyText.editable = NO;
-    //self.bodyText.text = [self getFakeArticle];  //@"";
+    self.bodyText.text = @""; //= [self getFakeArticle];
 
     self.markupParser = [MarkupParser shared];
     [self.markupParser linkifyArticle:@"iPhone"];
@@ -76,7 +76,6 @@
 {
     [super viewDidAppear:animated];
     [self configureView];
-    self.bodyText.attributedText = [self getFakeArticle];
 }
 
 -(NSAttributedString *)getFakeArticle{
