@@ -13,8 +13,6 @@
 @import Speech;
 
 
-
-
 @interface ArticleBodyViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, SFSpeechRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *bodyText;
@@ -54,7 +52,7 @@
         blurView.frame = self.searchTableView.bounds;
         blurView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.searchTableView.backgroundView = blurView;
-        //self.searchTableView.separatorEffect = [UIVibrancyEffect effectForBlurEffect:blur];
+        self.searchTableView.separatorEffect = [UIVibrancyEffect effectForBlurEffect:blur];
     } else {
         self.searchTableView.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
     }
@@ -68,10 +66,10 @@
                                                object:nil];
 
     self.bodyText.editable = NO;
-    self.bodyText.text = @""; //= [self getFakeArticle];
+    self.bodyText.text = @"";
 
     self.markupParser = [MarkupParser shared];
-    [self.markupParser linkifyArticle:@"iPhone"];
+    //[self.markupParser linkifyArticle:@"iPhone"];
 
     //Speech-to-text stuff below
     self.isSpeechRecognationAuthorized = NO;
@@ -199,18 +197,17 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSLog(@"-----DID SELECT ROW------%@", _searchResultsArray);
-    
+
     __weak typeof(self) bruceBanner = self;
-    
-    [WikipediaAPI getArticleFor: self.searchResultsArray[indexPath.row] completion:^(NSString *article) {
+    [self.markupParser decoratePlaintext:self.searchResultsArray[indexPath.row]
+                              completion:^(NSAttributedString * _Nonnull article) {
         __strong typeof(bruceBanner) hulk = bruceBanner;
-        hulk.bodyText.text = article;
+        NSString *title = hulk.searchResultsArray[indexPath.row];
+
+        hulk.bodyText.attributedText = article;
         hulk.searchTableView.hidden = YES;
         [hulk.searchBar endEditing:YES];
-        hulk.searchBar.text = self.searchResultsArray[indexPath.row];
-        
+        hulk.searchBar.text = title;
     }];
 }
 
