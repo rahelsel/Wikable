@@ -49,11 +49,12 @@
 
     if (!UIAccessibilityIsReduceTransparencyEnabled()) {
         self.searchTableView.backgroundColor = [UIColor clearColor];
-        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
         UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
         blurView.frame = self.searchTableView.bounds;
+        blurView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.searchTableView.backgroundView = blurView;
-        self.searchTableView.separatorEffect = [UIVibrancyEffect effectForBlurEffect:blur];
+        //self.searchTableView.separatorEffect = [UIVibrancyEffect effectForBlurEffect:blur];
     } else {
         self.searchTableView.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
     }
