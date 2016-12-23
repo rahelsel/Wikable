@@ -13,6 +13,41 @@ import UIKit
 // TODO: check to see if the normal singleton pattern works in the future.
 private let sharedMarkupParser = MarkupParser()
 
+struct Regex {
+    let pattern: String
+    let options: NSRegularExpression.Options
+
+    private var matcher: NSRegularExpression {
+        return try! NSRegularExpression(pattern: self.pattern, options: self.options)
+    }
+
+    init(pattern: String, options: NSRegularExpression.Options = .init(rawValue: 0)) {
+        self.pattern = pattern
+        self.options = options
+    }
+
+    func match(_ string: String, options: NSRegularExpression.MatchingOptions = .init(rawValue: 0)) -> Bool {
+        return self.matcher.numberOfMatches(in: string,
+                                            options: options,
+                                            range: NSMakeRange(0, string.utf16.count) ) != 0
+    }
+}
+
+protocol RegularExpressionMatchable {
+    func match(_ regex: Regex) -> Bool
+}
+
+extension String: RegularExpressionMatchable {
+    func match(_ regex: Regex) -> Bool {
+        return regex.match(self)
+    }
+}
+
+func ~=<T: RegularExpressionMatchable>(pattern: Regex, matchable: T) -> Bool {
+    return matchable.match(pattern)
+}
+
+
 class MarkupParser: NSObject {
     class var shared: MarkupParser{
         return sharedMarkupParser
@@ -31,6 +66,7 @@ class MarkupParser: NSObject {
         WikipediaAPI.getArticleFor( title) { (plaintext) in
             WikipediaAPI.getRawMarkup(for: title) { (markup) in
                 var decoratedLines = MarkupParser.decorate(plaintext)
+                print(decoratedLines)
             }
         }
     }
@@ -38,7 +74,6 @@ class MarkupParser: NSObject {
     private class func decorate(_ plaintext: String) -> [NSAttributedString] {
         let bodyFont = UIFont.preferredFont(forTextStyle: .body)
         let headlineFont = UIFont.preferredFont(forTextStyle: .headline)
-        //var lines = plaintext.components(separatedBy: .newlines)
 
         return plaintext.components(separatedBy: .newlines).flatMap{
             if MarkupParser.isHeading($0) {

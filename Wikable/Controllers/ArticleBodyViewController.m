@@ -173,7 +173,7 @@
         [self.containerView addSubview:textView];
 
     }
-    NSLog(@"Font: %@", headlineFont);
+    //NSLog(@"Font: %@", headlineFont);
     [self.view setNeedsLayout];
     [self.view layoutIfNeeded];
 }
@@ -186,8 +186,8 @@
 
 - (void)configureView
 {
-    NSLog(@"%@", [[UIApplication sharedApplication] preferredContentSizeCategory] );
-    UIFont *myFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    //NSLog(@"%@", [[UIApplication sharedApplication] preferredContentSizeCategory] );
+    //UIFont *myFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 
     //TODO: fix this
     //self.bodyText.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
