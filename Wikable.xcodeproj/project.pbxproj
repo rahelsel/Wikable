@@ -10,7 +10,7 @@
 		504C0B971E0C6BC0003B2F8B /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504C0B951E0C6BC0003B2F8B /* Fabric.framework */; };
 		504C0B981E0C6BC0003B2F8B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504C0B961E0C6BC0003B2F8B /* Crashlytics.framework */; };
 		507F88B51E0B4E7300F1A4DD /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 507F88B41E0B4E7300F1A4DD /* SearchCell.xib */; };
-		508C31E41E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 508C31E31E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests.m */; };
+		F207167E1E0CC05A00C4BA7B /* WikableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F207167D1E0CC05A00C4BA7B /* WikableTests.m */; };
 		F23BB57D1E083F8E008907C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB57B1E083F8E008907C1 /* AppDelegate.m */; };
 		F23BB57E1E083F8E008907C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F23BB57C1E083F8E008907C1 /* main.m */; };
 		F23BB5801E083FAA008907C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F23BB57F1E083FAA008907C1 /* Assets.xcassets */; };
@@ -23,7 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		508C31E61E0B3D6A00A8A4F5 /* PBXContainerItemProxy */ = {
+		F20716801E0CC05A00C4BA7B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F23BB5361E083D91008907C1 /* Project object */;
 			proxyType = 1;
@@ -36,9 +36,11 @@
 		504C0B951E0C6BC0003B2F8B /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = ../Fabric.framework; sourceTree = "<group>"; };
 		504C0B961E0C6BC0003B2F8B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = ../Crashlytics.framework; sourceTree = "<group>"; };
 		507F88B41E0B4E7300F1A4DD /* SearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
-		508C31E11E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArticleBodyViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		508C31E31E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleBodyViewControllerTests.m; sourceTree = "<group>"; };
-		508C31E51E0B3D6A00A8A4F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F20716631E0CBE9300C4BA7B /* ArticleBodyViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleBodyViewControllerTests.m; path = WikableTests/ArticleBodyViewControllerTests.m; sourceTree = SOURCE_ROOT; };
+		F20716641E0CBE9300C4BA7B /* WikipediaAPITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WikipediaAPITest.m; path = WikableTests/WikipediaAPITest.m; sourceTree = SOURCE_ROOT; };
+		F207167B1E0CC05A00C4BA7B /* WikableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F207167D1E0CC05A00C4BA7B /* WikableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WikableTests.m; sourceTree = "<group>"; };
+		F207167F1E0CC05A00C4BA7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23BB53E1E083D92008907C1 /* Wikable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wikable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23BB5521E083D92008907C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23BB57A1E083F8E008907C1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Supporting Files/AppDelegate.h"; sourceTree = "<group>"; };
@@ -57,7 +59,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		508C31DE1E0B3D6A00A8A4F5 /* Frameworks */ = {
+		F20716781E0CC05A00C4BA7B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,20 +78,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		508C31E21E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests */ = {
+		F207167C1E0CC05A00C4BA7B /* WikableTests */ = {
 			isa = PBXGroup;
 			children = (
-				508C31E31E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests.m */,
-				508C31E51E0B3D6A00A8A4F5 /* Info.plist */,
+				F20716631E0CBE9300C4BA7B /* ArticleBodyViewControllerTests.m */,
+				F20716641E0CBE9300C4BA7B /* WikipediaAPITest.m */,
+				F207167D1E0CC05A00C4BA7B /* WikableTests.m */,
+				F207167F1E0CC05A00C4BA7B /* Info.plist */,
 			);
-			path = ArticleBodyViewControllerTests;
+			path = WikableTests;
 			sourceTree = "<group>";
 		};
 		F23BB5351E083D91008907C1 = {
 			isa = PBXGroup;
 			children = (
 				F23BB5401E083D92008907C1 /* Wikable */,
-				508C31E21E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests */,
+				F207167C1E0CC05A00C4BA7B /* WikableTests */,
 				F23BB53F1E083D92008907C1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				F23BB53E1E083D92008907C1 /* Wikable.app */,
-				508C31E11E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests.xctest */,
+				F207167B1E0CC05A00C4BA7B /* WikableTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,22 +166,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		508C31E01E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests */ = {
+		F207167A1E0CC05A00C4BA7B /* WikableTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 508C31E81E0B3D6B00A8A4F5 /* Build configuration list for PBXNativeTarget "ArticleBodyViewControllerTests" */;
+			buildConfigurationList = F20716821E0CC05A00C4BA7B /* Build configuration list for PBXNativeTarget "WikableTests" */;
 			buildPhases = (
-				508C31DD1E0B3D6A00A8A4F5 /* Sources */,
-				508C31DE1E0B3D6A00A8A4F5 /* Frameworks */,
-				508C31DF1E0B3D6A00A8A4F5 /* Resources */,
+				F20716771E0CC05A00C4BA7B /* Sources */,
+				F20716781E0CC05A00C4BA7B /* Frameworks */,
+				F20716791E0CC05A00C4BA7B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				508C31E71E0B3D6A00A8A4F5 /* PBXTargetDependency */,
+				F20716811E0CC05A00C4BA7B /* PBXTargetDependency */,
 			);
-			name = ArticleBodyViewControllerTests;
-			productName = ArticleBodyViewControllerTests;
-			productReference = 508C31E11E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests.xctest */;
+			name = WikableTests;
+			productName = WikableTests;
+			productReference = F207167B1E0CC05A00C4BA7B /* WikableTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		F23BB53D1E083D91008907C1 /* Wikable */ = {
@@ -207,15 +211,15 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Bastardized Productions";
 				TargetAttributes = {
-					508C31E01E0B3D6A00A8A4F5 = {
+					F207167A1E0CC05A00C4BA7B = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 679533JEG9;
-						LastSwiftMigration = 0820;
+						DevelopmentTeam = KUNVAN4RR6;
 						ProvisioningStyle = Automatic;
+						TestTargetID = F23BB53D1E083D91008907C1;
 					};
 					F23BB53D1E083D91008907C1 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = AWF997WQMM;
+						DevelopmentTeam = KUNVAN4RR6;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -235,13 +239,13 @@
 			projectRoot = "";
 			targets = (
 				F23BB53D1E083D91008907C1 /* Wikable */,
-				508C31E01E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests */,
+				F207167A1E0CC05A00C4BA7B /* WikableTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		508C31DF1E0B3D6A00A8A4F5 /* Resources */ = {
+		F20716791E0CC05A00C4BA7B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -278,11 +282,11 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		508C31DD1E0B3D6A00A8A4F5 /* Sources */ = {
+		F20716771E0CC05A00C4BA7B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				508C31E41E0B3D6A00A8A4F5 /* ArticleBodyViewControllerTests.m in Sources */,
+				F207167E1E0CC05A00C4BA7B /* WikableTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,10 +306,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		508C31E71E0B3D6A00A8A4F5 /* PBXTargetDependency */ = {
+		F20716811E0CC05A00C4BA7B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F23BB53D1E083D91008907C1 /* Wikable */;
-			targetProxy = 508C31E61E0B3D6A00A8A4F5 /* PBXContainerItemProxy */;
+			targetProxy = F20716801E0CC05A00C4BA7B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -321,29 +325,29 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		508C31E91E0B3D6B00A8A4F5 /* Debug */ = {
+		F20716831E0CC05A00C4BA7B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 679533JEG9;
-				INFOPLIST_FILE = ArticleBodyViewControllerTests/Info.plist;
+				DEVELOPMENT_TEAM = KUNVAN4RR6;
+				INFOPLIST_FILE = WikableTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.johnshaff.ArticleBodyViewControllerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BastardizedProductions.WikableTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wikable.app/Wikable";
 			};
 			name = Debug;
 		};
-		508C31EA1E0B3D6B00A8A4F5 /* Release */ = {
+		F20716841E0CC05A00C4BA7B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 679533JEG9;
-				INFOPLIST_FILE = ArticleBodyViewControllerTests/Info.plist;
+				DEVELOPMENT_TEAM = KUNVAN4RR6;
+				INFOPLIST_FILE = WikableTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.johnshaff.ArticleBodyViewControllerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BastardizedProductions.WikableTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wikable.app/Wikable";
 			};
@@ -442,8 +446,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-
-				DEVELOPMENT_TEAM = 679533JEG9;
+				DEVELOPMENT_TEAM = KUNVAN4RR6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -464,13 +467,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-
-				DEVELOPMENT_TEAM = 679533JEG9;
+				DEVELOPMENT_TEAM = KUNVAN4RR6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-
 				INFOPLIST_FILE = Wikable/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -484,14 +485,13 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		508C31E81E0B3D6B00A8A4F5 /* Build configuration list for PBXNativeTarget "ArticleBodyViewControllerTests" */ = {
+		F20716821E0CC05A00C4BA7B /* Build configuration list for PBXNativeTarget "WikableTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				508C31E91E0B3D6B00A8A4F5 /* Debug */,
-				508C31EA1E0B3D6B00A8A4F5 /* Release */,
+				F20716831E0CC05A00C4BA7B /* Debug */,
+				F20716841E0CC05A00C4BA7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		F23BB5391E083D91008907C1 /* Build configuration list for PBXProject "Wikable" */ = {
 			isa = XCConfigurationList;

@@ -46,7 +46,18 @@
     self.searchTableView.delegate = self;
     UINib *searchTermCells = [UINib nibWithNibName:@"SearchCell" bundle:nil];
     [self.searchTableView registerNib:searchTermCells forCellReuseIdentifier:@"searchCell"];
-    
+
+    if (!UIAccessibilityIsReduceTransparencyEnabled()) {
+        self.searchTableView.backgroundColor = [UIColor clearColor];
+        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+        UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
+        blurView.frame = self.searchTableView.bounds;
+        self.searchTableView.backgroundView = blurView;
+        self.searchTableView.separatorEffect = [UIVibrancyEffect effectForBlurEffect:blur];
+    } else {
+        self.searchTableView.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
+    }
+
     self.searchTableView.hidden = YES;
     
     
@@ -174,8 +185,11 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchCell" forIndexPath:indexPath];
     cell.textLabel.text = self.searchResultsArray[indexPath.row];
-    cell.textLabel.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
-    cell.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
+    //cell.textLabel.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    //cell.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
+    cell.backgroundColor = [UIColor clearColor];
+
     cell.isAccessibilityElement = YES;
     cell.textLabel.isAccessibilityElement = YES;
     return cell;
