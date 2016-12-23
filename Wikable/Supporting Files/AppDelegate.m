@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "ArticleBodyViewController.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 @interface AppDelegate ()
 
@@ -22,6 +25,7 @@
     self.window.rootViewController = [[ArticleBodyViewController alloc] initWithNibName:@"ArticleView" bundle:nil];
     [self.window makeKeyAndVisible];
 
+    [Fabric with:@[[Crashlytics class]]];
 
     return YES;
 }

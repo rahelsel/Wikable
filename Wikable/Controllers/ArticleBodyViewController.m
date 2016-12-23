@@ -295,7 +295,6 @@
                     [self.audioEngine stop];
                 }
             }
-
         } else {
             //there is an error stop the audio
             [self.audioEngine stop];
